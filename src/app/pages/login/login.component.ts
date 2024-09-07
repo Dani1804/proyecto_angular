@@ -1,39 +1,46 @@
 import { Component } from '@angular/core';
-import {Router} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
   signupUsers: any[] = [];
-  signupObj:any = {
+  signupObj: any = {
     userName: '',
     email: '',
     password: '',
     passwordV: ''
   };
+  loginUsers: any[] = [];
   loginObj: any = {
     email: '',
     password: ''
-  }
-  constructor(private router: Router){}
-  ngOnInit(): void{
+  };
+
+  constructor(private router: Router) {}
+
+  ngOnInit(): void {
     const localData = localStorage.getItem('signupUsers');
-    if(localData != null) {
+    if (localData != null) {
       this.signupUsers = JSON.parse(localData);
+    }
+
+    const loginData = localStorage.getItem('loginUsers');
+    if (loginData != null) {
+      this.loginUsers = JSON.parse(loginData);
     }
   }
 
-  onSignUp() {
-
+  onSignUp(): void {
     if (this.signupObj.password === this.signupObj.passwordV) {
-      // Si coinciden, realiza el push al arreglo
-      this.signupUsers.push(this.signupObj);
+      this.signupUsers.push({ ...this.signupObj }); // Guardar una copia del objeto actual
       localStorage.setItem('signupUsers', JSON.stringify(this.signupUsers));
-      
+      alert('Registro exitoso');
 
+      // Limpiar el formulario
       this.signupObj = {
         userName: '',
         email: '',
@@ -41,24 +48,25 @@ export class LoginComponent {
         passwordV: ''
       };
     } else {
-
       alert('Las contraseñas no coinciden.');
     }
   }
-  onLogIn(){
-    debugger
-    if (this.loginObj.email != '' && this.loginObj.password != ''){
-      const isUserExist = this.signupUsers.find(m => m.email == this.loginObj.email && m.password == this.loginObj.password);
-      if(isUserExist != undefined){
+
+  onLogIn(): void {
+    if (this.loginObj.email !== '' && this.loginObj.password !== '') {
+      const isUserExist = this.signupUsers.find(
+        m => m.email === this.loginObj.email && m.password === this.loginObj.password
+      );
+      if (isUserExist) {
         alert('Usuario ingresado con éxito');
-      }else {
+        this.loginUsers.push({ ...this.loginObj }); // Guardar una copia del objeto actual
+        localStorage.setItem('loginUsers', JSON.stringify(this.loginUsers));
+        this.router.navigate(['/home']);
+      } else {
         alert('Credenciales incorrectas');
       }
-    }else {
-      alert('Favor ingresar credenciales')
+    } else {
+      alert('Favor ingresar credenciales');
     }
-
-      
   }
 }
- 

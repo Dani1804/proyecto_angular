@@ -1,0 +1,26 @@
+.sidenav-container {
+    height: 100vh;
+  }
+  
+  .mat-toolbar {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  .content {
+    padding: 20px;
+  }
+  
+  .username {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+  }
+  
+  .username mat-icon {
+    margin-right: 5px;
+  }

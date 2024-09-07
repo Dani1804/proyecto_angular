@@ -6,20 +6,40 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { EncuestaComponent } from './pages/encuesta/encuesta.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
+import { FormSettingsComponent } from './pages/form-settings/form-settings.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Importante para Angular Material
+import { MatIconModule } from '@angular/material/icon'; // Importar MatIconModule
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    EncuestaComponent,
+    AccountSettingsComponent,
+    FormSettingsComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,   
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

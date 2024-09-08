@@ -35,7 +35,7 @@ export class LoginComponent {
   }
 
   onSignUp(): void {
-    if (this.signupObj.password === this.signupObj.passwordV) {
+    if (this.signupObj.password === this.signupObj.passwordV && this.signupObj.password != '') {
       this.signupUsers.push({ ...this.signupObj }); // Guardar una copia del objeto actual
       localStorage.setItem('signupUsers', JSON.stringify(this.signupUsers));
       alert('Registro exitoso');
@@ -47,11 +47,14 @@ export class LoginComponent {
         password: '',
         passwordV: ''
       };
+      window.location.reload();
     } else {
-      alert('Las contraseñas no coinciden.');
+      alert('El campo está vacío o Las contraseñas no coinciden.');
     }
   }
-
+  reestablecer (){
+    this.router.navigate(['/reestablecer']);
+  }
   onLogIn(): void {
     if (this.loginObj.email !== '' && this.loginObj.password !== '') {
       const isUserExist = this.signupUsers.find(
@@ -68,5 +71,7 @@ export class LoginComponent {
     } else {
       alert('Favor ingresar credenciales');
     }
+    
   }
+
 }

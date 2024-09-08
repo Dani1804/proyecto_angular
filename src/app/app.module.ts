@@ -15,6 +15,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { SplashComponent } from './pages/splash/splash.component';
+import { ReestablecerPassComponent } from './pages/reestablecer-pass/reestablecer-pass.component';
 
 
 
@@ -26,7 +27,8 @@ import { SplashComponent } from './pages/splash/splash.component';
     EncuestaComponent,
     AccountSettingsComponent,
     FormSettingsComponent,
-    SplashComponent
+    SplashComponent,
+    ReestablecerPassComponent
   ],
   imports: [
     BrowserModule,

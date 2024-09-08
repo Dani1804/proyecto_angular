@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -15,6 +14,7 @@ import { MatIconModule } from '@angular/material/icon'; // Importar MatIconModul
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { SplashComponent } from './pages/splash/splash.component';
 
 
 
@@ -25,7 +25,8 @@ import { MatListModule } from '@angular/material/list';
     LoginComponent,
     EncuestaComponent,
     AccountSettingsComponent,
-    FormSettingsComponent
+    FormSettingsComponent,
+    SplashComponent
   ],
   imports: [
     BrowserModule,

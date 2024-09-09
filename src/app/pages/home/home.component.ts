@@ -44,6 +44,6 @@ export class HomeComponent implements OnInit {
 
   logout(): void {
 
-    this.router.navigate(['/login']);  // Redirigir al login al cerrar sesión
+    this.router.navigate(['/splash']);  // Redirigir al login al cerrar sesión
   }
 }

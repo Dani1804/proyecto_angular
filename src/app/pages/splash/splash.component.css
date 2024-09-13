@@ -65,5 +65,6 @@ body {
         height: 300px;
         width: 300px;
         border-radius: 50%;
+        border-color: black;
     }
   }

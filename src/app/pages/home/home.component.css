@@ -2,6 +2,7 @@
 .sidenav-container {
   height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
   display: flex; /* Usa flexbox para permitir un diseño flexible */
+  flex-direction: column; /* Asegura que el contenido fluya verticalmente */
 }
 
 /* Estilos para la barra de herramientas */
@@ -9,6 +10,8 @@
   display: flex; /* Usa flexbox para alinear los elementos en la barra de herramientas */
   justify-content: space-between; /* Espacia los elementos de la barra de herramientas */
   align-items: center; /* Centra verticalmente los elementos */
+  padding: 0 16px; /* Añade un poco de padding lateral para evitar que el contenido toque los bordes */
+  box-sizing: border-box;
 }
 
 /* Espaciador para empujar el contenido a los extremos */
@@ -19,6 +22,7 @@
 /* Estilos para el contenido principal */
 .content {
   padding: 20px; /* Añade espacio alrededor del contenido */
+  flex: 1; /* Permite que el contenido crezca y ocupe el espacio restante */
 }
 
 /* Estilos para el nombre de usuario */
@@ -51,5 +55,9 @@
   .mat-icon-button {
     margin: 0; /* Asegura que no haya márgenes no deseados */
     z-index: 2; /* Asegura que el botón de menú esté sobre otros elementos */
+  }
+
+  .username {
+    justify-content: flex-end; /* Asegura que el nombre de usuario se mantenga a la derecha en pantallas pequeñas */
   }
 }

@@ -1,28 +1,27 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #drawer mode="side" opened>
-      <mat-nav-list>
-        <mat-list-item (click)="navigateTo('home')">Dashboards</mat-list-item>
-        <mat-list-item (click)="navigateTo('account-settings')">Configuración de cuenta</mat-list-item>
-        <mat-list-item (click)="navigateTo('form-settings')">Configurar formularios</mat-list-item>
-        <mat-list-item (click)="logout()">Cerrar sesión</mat-list-item>
-      </mat-nav-list>
-    </mat-sidenav>
-  
-    <mat-sidenav-content>
-<mat-toolbar color="primary">
-  <button mat-icon-button (click)="drawer.toggle()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span class="title">Bienvenido a Polling Owl</span>
-  <span class="spacer"></span>
-  <span class="username">
-    <mat-icon>account_circle</mat-icon> {{ userName }}
-  </span>
-</mat-toolbar>
-  
-      <div class="content">
-        <router-outlet></router-outlet> <!-- Aquí se mostrarán las secciones -->
-      </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  
+  <mat-sidenav #drawer mode="side" opened>
+    <mat-nav-list>
+      <mat-list-item (click)="navigateTo('home')">Dashboards</mat-list-item>
+      <mat-list-item (click)="navigateTo('account-settings')">Configuración de cuenta</mat-list-item>
+      <mat-list-item (click)="navigateTo('form-settings')">Configurar formularios</mat-list-item>
+      <mat-list-item (click)="logout()">Cerrar sesión</mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="title">Bienvenido a Polling Owl</span>
+      <span class="spacer"></span>
+      <span class="username">
+        <mat-icon>account_circle</mat-icon> {{ userName }}
+      </span>
+    </mat-toolbar>
+
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

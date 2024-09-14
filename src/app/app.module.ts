@@ -19,6 +19,7 @@ import { ReestablecerPassComponent } from './pages/reestablecer-pass/reestablece
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { ReestablecerPassComponent } from './pages/reestablecer-pass/reestablece
     AccountSettingsComponent,
     FormSettingsComponent,
     SplashComponent,
-    ReestablecerPassComponent
+    ReestablecerPassComponent,
+  
   ],
   imports: [
     BrowserModule,

@@ -8,18 +8,26 @@ import { EncuestaComponent } from './pages/encuesta/encuesta.component';
 import { SplashComponent } from './pages/splash/splash.component';
 import { ReestablecerPassComponent } from './pages/reestablecer-pass/reestablecer-pass.component';
 import { PanelesComponent } from './pages/paneles/paneles.component';
+import { Pagina404Component } from './pages/pagina404/pagina404.component';
 
 const routes: Routes = [
-  { path: '', component: SplashComponent },
+  { path: 'splash', component: SplashComponent },
+  { path: '', redirectTo: 'splash', pathMatch: 'full' },  // Redirige la ruta vacía al splash
   { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent},
+  { path: 'login', component: LoginComponent },
   { path: 'account-settings', component: AccountSettingsComponent },  // Configuración de cuenta
   { path: 'form-settings', component: FormSettingsComponent },
-  { path: 'encuesta', component: EncuestaComponent},
-  { path: 'reestablecer', component: ReestablecerPassComponent},
-  { path: 'paneles', component: PanelesComponent},
-  { path: '**', redirectTo: '' },
+  { path: 'encuesta', component: EncuestaComponent },
+  { path: 'reestablecer', component: ReestablecerPassComponent },
+  { path: 'paneles', component: PanelesComponent },
+  { 
+    path: 'pagina404', 
+    loadChildren: () => import('./pages/pagina404/pagina404.module').then(m => m.Pagina404Module) 
+  },
+  { path: '**', component: Pagina404Component }  // Redirige cualquier ruta no encontrada a la página 404
 ];
+
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

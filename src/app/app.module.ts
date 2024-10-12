@@ -20,9 +20,6 @@ import { PanelesComponent } from './pages/paneles/paneles.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,3 +52,5 @@ import {MatTableModule} from '@angular/material/table';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

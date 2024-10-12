@@ -19,6 +19,9 @@ import { ReestablecerPassComponent } from './pages/reestablecer-pass/reestablece
 import { PanelesComponent } from './pages/paneles/paneles.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatTableModule} from '@angular/material/table';
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -44,6 +47,7 @@ import {MatTableModule} from '@angular/material/table';
     MatListModule,
     MatTableModule, 
     MatPaginatorModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
   ],
   providers: [
     provideClientHydration(),

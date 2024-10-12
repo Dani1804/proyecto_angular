@@ -7,6 +7,7 @@ import { FormSettingsComponent } from './pages/form-settings/form-settings.compo
 import { EncuestaComponent } from './pages/encuesta/encuesta.component';
 import { SplashComponent } from './pages/splash/splash.component';
 import { ReestablecerPassComponent } from './pages/reestablecer-pass/reestablecer-pass.component';
+import { PanelesComponent } from './pages/paneles/paneles.component';
 
 const routes: Routes = [
   { path: '', component: SplashComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'form-settings', component: FormSettingsComponent },
   { path: 'encuesta', component: EncuestaComponent},
   { path: 'reestablecer', component: ReestablecerPassComponent},
+  { path: 'paneles', component: PanelesComponent},
   { path: '**', redirectTo: '' },
 ];
 

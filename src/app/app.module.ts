@@ -16,6 +16,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { SplashComponent } from './pages/splash/splash.component';
 import { ReestablecerPassComponent } from './pages/reestablecer-pass/reestablecer-pass.component';
+import { PanelesComponent } from './pages/paneles/paneles.component';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -30,6 +33,7 @@ import { ReestablecerPassComponent } from './pages/reestablecer-pass/reestablece
     FormSettingsComponent,
     SplashComponent,
     ReestablecerPassComponent,
+    PanelesComponent,
   
   ],
   imports: [
@@ -40,7 +44,9 @@ import { ReestablecerPassComponent } from './pages/reestablecer-pass/reestablece
     MatIconModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatListModule
+    MatListModule,
+    MatTableModule, 
+    MatPaginatorModule,
   ],
   providers: [
     provideClientHydration(),

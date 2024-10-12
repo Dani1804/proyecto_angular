@@ -1,9 +1,11 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer mode="side" opened>
     <mat-nav-list>
-      <mat-list-item (click)="navigateTo('home')">Dashboards</mat-list-item>
+      <mat-list-item (click)="navigateTo('home')">Home</mat-list-item>
+      <mat-list-item (click)="navigateTo('paneles')">Paneles</mat-list-item>
+      <mat-list-item (click)="navigateTo('encuesta')">Encuesta</mat-list-item>
+      <mat-list-item (click)="navigateTo('generarQR')">Generar QR</mat-list-item>
       <mat-list-item (click)="navigateTo('account-settings')">Configuración de cuenta</mat-list-item>
-      <mat-list-item (click)="navigateTo('form-settings')">Configurar formularios</mat-list-item>
       <mat-list-item (click)="logout()">Cerrar sesión</mat-list-item>
     </mat-nav-list>
   </mat-sidenav>

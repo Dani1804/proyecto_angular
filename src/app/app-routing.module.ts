@@ -1,30 +1,47 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './pages/login/login.component';
-import { HomeComponent } from './pages/home/home.component';
-import { AccountSettingsComponent } from './pages/account-settings/account-settings.component';
-import { FormSettingsComponent } from './pages/form-settings/form-settings.component';
-import { EncuestaComponent } from './pages/encuesta/encuesta.component';
-import { SplashComponent } from './pages/splash/splash.component';
-import { ReestablecerPassComponent } from './pages/reestablecer-pass/reestablecer-pass.component';
-import { PanelesComponent } from './pages/paneles/paneles.component';
 import { Pagina404Component } from './pages/pagina404/pagina404.component';
+import { SplashComponent } from './pages/splash/splash.component';
 
 const routes: Routes = [
-  { path: 'splash', component: SplashComponent },
+  { 
+    path: 'splash', 
+      component: SplashComponent },
+
   { path: '', redirectTo: 'splash', pathMatch: 'full' },  // Redirige la ruta vacía al splash
-  { path: 'home', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'account-settings', component: AccountSettingsComponent },  // Configuración de cuenta
-  { path: 'form-settings', component: FormSettingsComponent },
-  { path: 'encuesta', component: EncuestaComponent },
-  { path: 'reestablecer', component: ReestablecerPassComponent },
-  { path: 'paneles', component: PanelesComponent },
+  { 
+    path: 'home',
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) 
+  },
+  { 
+    path: 'login', 
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) 
+  },
+  { 
+    path: 'account-settings', 
+    loadChildren: () => import('./pages/account-settings/account-settings.module').then(m => m.AccountSettingsModule)
+   },  
+  { 
+    path: 'form-settings', 
+    loadChildren: () => import('./pages/form-settings/form-settings.module').then(m => m.FormSettingsModule)
+   },
+  { 
+    path: 'encuesta', 
+    loadChildren: () => import('./pages/encuesta/encuesta.module').then(m => m.EncuestaModule)
+   },
+  { 
+    path: 'reestablecer', 
+    loadChildren: () => import('./pages/reestablecer-pass/reestablecer-pass.module').then(m => m.ReestablecerPassModule)
+    },
+  { 
+    path: 'paneles', 
+    loadChildren: () => import('./pages/paneles/paneles.module').then(m => m.PanelesModule) 
+  },
   { 
     path: 'pagina404', 
     loadChildren: () => import('./pages/pagina404/pagina404.module').then(m => m.Pagina404Module) 
   },
-  { path: '**', component: Pagina404Component }  // Redirige cualquier ruta no encontrada a la página 404
+  { path: '**', component: Pagina404Component }  
 ];
 
 

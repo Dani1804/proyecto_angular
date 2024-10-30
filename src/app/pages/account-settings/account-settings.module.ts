@@ -8,7 +8,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatTableModule} from '@angular/material/table';
-
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
   { path: '', component: AccountSettingsComponent},
@@ -26,6 +26,7 @@ const routes: Routes = [
     MatListModule,
     MatTableModule, 
     MatPaginatorModule,
+    FormsModule
   ]
 
 })

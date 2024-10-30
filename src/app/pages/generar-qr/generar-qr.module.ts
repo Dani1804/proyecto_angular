@@ -15,7 +15,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [],
+  declarations: [ GenerarQRComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),  

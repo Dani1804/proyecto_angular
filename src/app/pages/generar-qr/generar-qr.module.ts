@@ -9,6 +9,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatTableModule} from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 const routes: Routes = [
   { path: '', component: GenerarQRComponent},
@@ -25,7 +27,9 @@ const routes: Routes = [
     MatListModule,
     MatTableModule, 
     MatPaginatorModule,
-    FormsModule, 
+    FormsModule,
+    MatDialogModule,
+    MatButtonModule,
   ]
 })
 export class GenerarQRModule { }

@@ -23,6 +23,16 @@
     </mat-toolbar>
 
     <div class="content">
+      <div class="updates-section">
+        <h2>Actualizaciones Recientes</h2>
+        <mat-card *ngFor="let update of recentUpdates" class="update-card">
+          <mat-card-title>{{ update.title }}</mat-card-title>
+          <mat-card-content>{{ update.description }}</mat-card-content>
+          <mat-card-actions>
+            <button mat-button (click)="viewDetails(update.id)">Ver detalles</button>
+          </mat-card-actions>
+        </mat-card>
+      </div>
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>

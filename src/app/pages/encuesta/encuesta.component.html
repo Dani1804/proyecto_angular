@@ -1,55 +1,96 @@
 <mat-sidenav-container class="sidenav-container">
-    <mat-sidenav #drawer mode="side" opened>
-      <mat-nav-list>
-        <mat-list-item (click)="navigateTo('home')">Home</mat-list-item>
-        <mat-list-item (click)="navigateTo('paneles')">Paneles</mat-list-item>
-        <mat-list-item (click)="navigateTo('encuesta')">Encuesta</mat-list-item>
-        <mat-list-item (click)="navigateTo('generarQR')">Generar QR</mat-list-item>
-        <mat-list-item (click)="navigateTo('account-settings')">Configuración de cuenta</mat-list-item>
-        <mat-list-item (click)="logout()">Cerrar sesión</mat-list-item>
-      </mat-nav-list>
-    </mat-sidenav>
-  
-    <mat-sidenav-content>
-      <mat-toolbar color="primary">
-        <button mat-icon-button (click)="drawer.toggle()">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span class="title">Bienvenido a Polling Owl</span>
-        <span class="spacer"></span>
-        <span class="username">
-          <mat-icon>account_circle</mat-icon> {{ userName }}
-        </span>
-      </mat-toolbar>
-  
-      <div class="content">
-        <!-- Botones para manejar formularios -->
-        <div class="button-container" style="margin-bottom: 20px;">
-            <button mat-flat-button (click)="createForm()">Crear Formulario</button>
-            <button mat-flat-button (click)="editForm()">Editar Formulario</button>
-            <button mat-fab aria-label="Example icon button with a delete icon" (click)="deleteForm()">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
-  
-        <!-- Formulario -->
-        <form class="example-form" *ngIf="showForm" (ngSubmit)="saveForm()">
-          <mat-form-field class="example-full-width">
-            <mat-label>Comida favorita</mat-label>
-            <input matInput placeholder="Ej. Pizza" [(ngModel)]="formData.food">
-          </mat-form-field>
-  
-          <mat-form-field class="example-full-width">
-            <mat-label>Deja un comentario</mat-label>
-            <textarea matInput placeholder="Ej. Me hace sentir..." [(ngModel)]="formData.comment"></textarea>
-          </mat-form-field>
-          <button mat-raised-button color="primary" type="submit">Guardar</button>
-        </form>
-  
-        <div class="content">
-          <router-outlet></router-outlet>
-        </div>
+  <mat-sidenav #drawer mode="side" opened>
+    <mat-nav-list>
+      <mat-list-item (click)="navigateTo('home')">Home</mat-list-item>
+      <mat-list-item (click)="navigateTo('paneles')">Paneles</mat-list-item>
+      <mat-list-item (click)="navigateTo('encuesta')">Encuesta</mat-list-item>
+      <mat-list-item (click)="navigateTo('generarQR')">Generar QR</mat-list-item>
+      <mat-list-item (click)="navigateTo('account-settings')">Configuración de cuenta</mat-list-item>
+      <mat-list-item (click)="logout()">Cerrar sesión</mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="drawer.toggle()">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="title">Encuestas y Formularios</span>
+      <span class="spacer"></span>
+      <span class="username">
+        <mat-icon>account_circle</mat-icon> {{ userName }}
+      </span>
+    </mat-toolbar>
+
+    <div class="content">
+      <!-- Botón para crear una nueva encuesta -->
+      <div class="button-container" style="margin-bottom: 20px;">
+        <button mat-flat-button color="primary" (click)="createForm()">Crear Encuesta</button>
       </div>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
-  
+
+      <!-- Formulario para crear o editar encuesta -->
+      <div *ngIf="showForm" class="survey-form">
+        <h3>{{ formData.id ? 'Editar Encuesta' : 'Crear Encuesta' }}</h3>
+        <form (ngSubmit)="saveForm()">
+          <mat-form-field appearance="fill">
+            <mat-label>Nombre de la Encuesta</mat-label>
+            <input matInput [(ngModel)]="formData.name" name="name" required>
+          </mat-form-field>
+
+          <h4>Preguntas</h4>
+          <div *ngFor="let question of formData.questions; let i = index">
+            <mat-form-field appearance="fill">
+              <mat-label>Pregunta {{ i + 1 }}</mat-label>
+              <input matInput [(ngModel)]="question.question" name="question{{ i }}" required>
+            </mat-form-field>
+            <button mat-button color="warn" (click)="deleteQuestion(i)">Eliminar Pregunta</button>
+          </div>
+          <button mat-flat-button color="accent" (click)="addQuestion()">Agregar Pregunta</button>
+          
+          <button mat-raised-button color="primary" type="submit">
+            {{ formData.id ? 'Actualizar Encuesta' : 'Crear Encuesta' }}
+          </button>
+          <button mat-button type="button" (click)="showForm = false">Cancelar</button>
+        </form>
+      </div>
+
+      <!-- Tabla de encuestas creadas -->
+      <table mat-table [dataSource]="surveys" class="mat-elevation-z8">
+        <!-- Columna para la ID de la encuesta -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let survey"> {{ survey.id }} </td>
+        </ng-container>
+
+        <!-- Columna para el nombre de la encuesta -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef> Nombre de la Encuesta </th>
+          <td mat-cell *matCellDef="let survey"> {{ survey.name }} </td>
+        </ng-container>
+
+        <!-- Columna para botones de acción -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef> Acciones </th>
+          <td mat-cell *matCellDef="let survey">
+            <button mat-icon-button (click)="viewSurvey(survey.id)">
+              <mat-icon>visibility</mat-icon>
+            </button>
+            <button mat-icon-button (click)="editForm(survey.id)">
+              <mat-icon>edit</mat-icon>
+            </button>
+            <button mat-icon-button (click)="deleteForm(survey.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="['id', 'name', 'actions']"></tr>
+        <tr mat-row *matRowDef="let row; columns: ['id', 'name', 'actions'];"></tr>
+      </table>
+
+      <div class="content">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -5,7 +5,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 @Component({
   selector: 'app-account-settings',
   templateUrl: './account-settings.component.html',
-  styleUrl: './account-settings.component.css'
+  styleUrls: ['./account-settings.component.css']
 })
 export class AccountSettingsComponent implements OnInit {
   @ViewChild('drawer') drawer!: MatSidenav;
@@ -13,13 +13,28 @@ export class AccountSettingsComponent implements OnInit {
   loginUsers: any[] = [];
   currentUser: any = null;
   userName: string = '';
-  constructor( private router: Router) { }
+  showForm = false;
+  formData = {
+    food: '',
+    comment: ''
+  };
+
+  // Datos de la cuenta del usuario
+  accountData = {
+    name: '',
+    email: '',
+    phone: ''
+  };
+
+  constructor(private router: Router) {}
+
   ngOnInit(): void {
     // Recuperar el arreglo de signupUsers desde el localStorage
     const signupData = localStorage.getItem('signupUsers');
     if (signupData) {
       this.signupUsers = JSON.parse(signupData);
     }
+
     // Recuperar el arreglo de loginUsers desde el localStorage
     const loginData = localStorage.getItem('loginUsers');
     if (loginData) {
@@ -29,47 +44,41 @@ export class AccountSettingsComponent implements OnInit {
       // Buscar el userName correspondiente al email del usuario logueado
       const matchedUser = this.signupUsers.find(user => user.email === this.currentUser.email);
       if (matchedUser) {
-        this.userName = matchedUser.userName;  // Obtener el userName del signupUsers
+        this.userName = matchedUser.userName; // Obtener el userName del signupUsers
+        this.accountData = { // Cargar datos de cuenta para editar
+          name: matchedUser.userName,
+          email: matchedUser.email,
+          phone: matchedUser.phone || ''
+        };
       }
     }
   }
+
   navigateTo(route: string): void {
     this.router.navigate([route]); // Navegar a la ruta especificada
   }
+
   logout(): void {
-    this.router.navigate(['/splash']);  // Redirigir al login al cerrar sesión
-  }
-  showForm = false;
-  formData = {
-    food: '',
-    comment: ''
-  };
-  createForm() {
-    this.showForm = true;
-    this.formData = { food: '', comment: '' }; // Reset form
+    this.router.navigate(['/splash']); // Redirigir al login al cerrar sesión
   }
 
-  editForm() {
-    this.showForm = true;
-    // Aquí puedes cargar los datos del formulario existente para editar
-    // Por ejemplo:
-    // this.formData = this.getFormData();
-  }
 
-  deleteForm() {
-    if (confirm('¿Estás seguro de que deseas eliminar este formulario?')) {
-      // Lógica para eliminar el formulario
-      this.showForm = false;
-      this.formData = { food: '', comment: '' }; // Reset form
+
+  // Función para confirmar los cambios en el formulario de configuración de cuenta
+  confirmChanges(): void {
+    console.log('Datos de cuenta confirmados:', this.accountData);
+    // Aquí podrías agregar lógica para actualizar los datos de cuenta en la base de datos o localStorage
+    // Ejemplo: Actualizar el usuario en el localStorage
+    const userIndex = this.signupUsers.findIndex(user => user.email === this.currentUser.email);
+    if (userIndex !== -1) {
+      this.signupUsers[userIndex] = { ...this.signupUsers[userIndex], ...this.accountData };
+      localStorage.setItem('signupUsers', JSON.stringify(this.signupUsers));
+      alert('Cambios confirmados con éxito');
     }
   }
-  saveForm() {
-    // Aquí implementas la lógica para enviar los datos a tu base de datos
-    console.log('Formulario guardado:', this.formData);
-    // Aquí podrías hacer una llamada a tu servicio para guardar los datos en la base de datos
-    // this.yourService.saveForm(this.formData).subscribe(response => {
-    //   console.log('Formulario guardado con éxito', response);
-    //   this.showForm = false; // Opcionalmente ocultar el formulario después de guardar
-    // });
+
+  // Función para limpiar el formulario de configuración de cuenta
+  clearForm(): void {
+    this.accountData = { name: '', email: '', phone: '' };
   }
 }

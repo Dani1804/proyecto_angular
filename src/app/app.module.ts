@@ -8,12 +8,14 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { QrDialogComponent } from './pages/qr-dialog/qr-dialog.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SplashComponent,
+    QrDialogComponent,
 
   ],
   imports: [

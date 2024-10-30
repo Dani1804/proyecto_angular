@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatPaginator} from '@angular/material/paginator';
 import { MatTableDataSource} from '@angular/material/table';
+import { MatDialog } from '@angular/material/dialog';
+import { QrDialogComponent } from '../qr-dialog/qr-dialog.component';
 
 @Component({
   selector: 'app-generar-qr',
@@ -11,7 +13,7 @@ import { MatTableDataSource} from '@angular/material/table';
 })
 export class GenerarQRComponent implements OnInit , AfterViewInit{
   
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'qr'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -24,7 +26,12 @@ export class GenerarQRComponent implements OnInit , AfterViewInit{
   loginUsers: any[] = [];
   currentUser: any = null;
   userName: string = '';
-  constructor( private router: Router) { }
+  constructor( private router: Router, private dialog: MatDialog) { }
+  openQrDialog(element: any): void {
+    this.dialog.open(QrDialogComponent, {
+      data: element
+    });
+  }
   ngOnInit(): void {
     // Recuperar el arreglo de signupUsers desde el localStorage
     const signupData = localStorage.getItem('signupUsers');

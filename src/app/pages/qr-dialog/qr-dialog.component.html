@@ -1,0 +1,7 @@
+<h1 mat-dialog-title>QR Code</h1>
+<div mat-dialog-content style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+  <img [src]="qrCodeUrl" alt="QR Code" style="margin: 10px; max-width: 100%; height: auto;">
+</div>
+<div mat-dialog-actions style="justify-content: center;">
+  <button mat-button (click)="closeDialog()">Cerrar</button>
+</div>

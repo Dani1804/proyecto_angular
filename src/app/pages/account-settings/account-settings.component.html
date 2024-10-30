@@ -15,7 +15,7 @@
       <button mat-icon-button (click)="drawer.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-      <span class="title">Bienvenido a Polling Owl</span>
+      <span class="title">Configuración de cuenta</span>
       <span class="spacer"></span>
       <span class="username">
         <mat-icon>account_circle</mat-icon> {{ userName }}
@@ -24,27 +24,33 @@
 
     <div class="content">
       <!-- Botones para manejar formularios -->
-      <div class="button-container" style="margin-bottom: 20px;">
-          <button mat-flat-button (click)="createForm()">Crear Formulario</button>
-          <button mat-flat-button (click)="editForm()">Editar Formulario</button>
-          <button mat-fab aria-label="Example icon button with a delete icon" (click)="deleteForm()">
-          <mat-icon>delete</mat-icon>
-        </button>
+
+
+      <!-- Formulario de configuración de cuenta -->
+      <div *ngIf="currentUser">
+        <h2>Editar Datos de Cuenta</h2>
+        <form (ngSubmit)="confirmChanges()">
+          <mat-form-field class="example-full-width">
+            <mat-label>Nombre</mat-label>
+            <input matInput placeholder="Ej. Juan Pérez" [(ngModel)]="accountData.name" name="name">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" placeholder="Ej. ejemplo@correo.com" [(ngModel)]="accountData.email" name="email">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Teléfono</mat-label>
+            <input matInput type="tel" placeholder="Ej. +123456789" [(ngModel)]="accountData.phone" name="phone">
+          </mat-form-field>
+
+          <div class="button-group">
+            <button mat-raised-button color="primary" type="submit">Confirmar Cambios</button>
+            <button mat-button type="button" (click)="clearForm()">Limpiar</button>
+          </div>
+        </form>
       </div>
-
-      <!-- Formulario -->
-      <form class="example-form" *ngIf="showForm" (ngSubmit)="saveForm()">
-        <mat-form-field class="example-full-width">
-          <mat-label>Comida favorita</mat-label>
-          <input matInput placeholder="Ej. Pizza" [(ngModel)]="formData.food">
-        </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <mat-label>Deja un comentario</mat-label>
-          <textarea matInput placeholder="Ej. Me hace sentir..." [(ngModel)]="formData.comment"></textarea>
-        </mat-form-field>
-        <button mat-raised-button color="primary" type="submit">Guardar</button>
-      </form>
 
       <div class="content">
         <router-outlet></router-outlet>

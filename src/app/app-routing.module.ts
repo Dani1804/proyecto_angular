@@ -22,13 +22,14 @@ const routes: Routes = [
     loadChildren: () => import('./pages/account-settings/account-settings.module').then(m => m.AccountSettingsModule)
    },  
   { 
-    path: 'form-settings', 
-    loadChildren: () => import('./pages/form-settings/form-settings.module').then(m => m.FormSettingsModule)
-   },
-  { 
     path: 'encuesta', 
     loadChildren: () => import('./pages/encuesta/encuesta.module').then(m => m.EncuestaModule)
    },
+   { 
+    path: 'generarQR', 
+    loadChildren: () => import('./pages/generar-qr/generar-qr.module').then(m => m.GenerarQRModule)
+   },
+
   { 
     path: 'reestablecer', 
     loadChildren: () => import('./pages/reestablecer-pass/reestablecer-pass.module').then(m => m.ReestablecerPassModule)

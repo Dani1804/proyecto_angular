@@ -1,21 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormSettingsComponent } from './form-settings.component';
+import { GenerarQRComponent } from './generar-qr.component';
 import { RouterModule, Routes } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon'; // Importar MatIconModule
+import { MatIconModule } from '@angular/material/icon'; 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatTableModule} from '@angular/material/table';
-
-
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [
-  { path: '', component: FormSettingsComponent},
+  { path: '', component: GenerarQRComponent},
 ];
+
 @NgModule({
-  declarations: [FormSettingsComponent],
+  declarations: [],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),  
@@ -25,6 +25,7 @@ const routes: Routes = [
     MatListModule,
     MatTableModule, 
     MatPaginatorModule,
+    FormsModule, 
   ]
 })
-export class FormSettingsModule { }
+export class GenerarQRModule { }

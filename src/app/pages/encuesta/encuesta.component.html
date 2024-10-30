@@ -1,1 +1,55 @@
-<p>encuesta works!</p>
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer mode="side" opened>
+      <mat-nav-list>
+        <mat-list-item (click)="navigateTo('home')">Home</mat-list-item>
+        <mat-list-item (click)="navigateTo('paneles')">Paneles</mat-list-item>
+        <mat-list-item (click)="navigateTo('encuesta')">Encuesta</mat-list-item>
+        <mat-list-item (click)="navigateTo('generarQR')">Generar QR</mat-list-item>
+        <mat-list-item (click)="navigateTo('account-settings')">Configuración de cuenta</mat-list-item>
+        <mat-list-item (click)="logout()">Cerrar sesión</mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <mat-sidenav-content>
+      <mat-toolbar color="primary">
+        <button mat-icon-button (click)="drawer.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class="title">Bienvenido a Polling Owl</span>
+        <span class="spacer"></span>
+        <span class="username">
+          <mat-icon>account_circle</mat-icon> {{ userName }}
+        </span>
+      </mat-toolbar>
+  
+      <div class="content">
+        <!-- Botones para manejar formularios -->
+        <div class="button-container" style="margin-bottom: 20px;">
+            <button mat-flat-button (click)="createForm()">Crear Formulario</button>
+            <button mat-flat-button (click)="editForm()">Editar Formulario</button>
+            <button mat-fab aria-label="Example icon button with a delete icon" (click)="deleteForm()">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+  
+        <!-- Formulario -->
+        <form class="example-form" *ngIf="showForm" (ngSubmit)="saveForm()">
+          <mat-form-field class="example-full-width">
+            <mat-label>Comida favorita</mat-label>
+            <input matInput placeholder="Ej. Pizza" [(ngModel)]="formData.food">
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+            <mat-label>Deja un comentario</mat-label>
+            <textarea matInput placeholder="Ej. Me hace sentir..." [(ngModel)]="formData.comment"></textarea>
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit">Guardar</button>
+        </form>
+  
+        <div class="content">
+          <router-outlet></router-outlet>
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

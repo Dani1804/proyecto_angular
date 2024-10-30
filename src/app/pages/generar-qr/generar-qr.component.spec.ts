@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormSettingsComponent } from './form-settings.component';
+import { GenerarQRComponent } from './generar-qr.component';
 
-describe('FormSettingsComponent', () => {
-  let component: FormSettingsComponent;
-  let fixture: ComponentFixture<FormSettingsComponent>;
+describe('GenerarQRComponent', () => {
+  let component: GenerarQRComponent;
+  let fixture: ComponentFixture<GenerarQRComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [FormSettingsComponent]
+      declarations: [GenerarQRComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FormSettingsComponent);
+    fixture = TestBed.createComponent(GenerarQRComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

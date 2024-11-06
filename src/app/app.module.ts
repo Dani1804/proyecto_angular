@@ -12,12 +12,14 @@ import { QrDialogComponent } from './pages/qr-dialog/qr-dialog.component';
 import { CrudfirebaseService } from './servicios/crudfirebase.service';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
     SplashComponent,
     QrDialogComponent,
+
   
 
   ],
@@ -28,7 +30,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     BrowserAnimationsModule,
     FormsModule, 
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    HttpClientModule
 
   ],  providers: [
     provideClientHydration(),

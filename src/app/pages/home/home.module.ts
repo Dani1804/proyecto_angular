@@ -10,6 +10,7 @@ import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatTableModule} from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -36,6 +37,11 @@ const routes: Routes = [
         path: 'usuariosfirebase', 
         loadChildren: () => import('../../componentes/usuariosfirebase/usuariosfirebase.module').then(m => m.UsuariosfirebaseModule)
       },
+      { 
+        path: 'apiRest', 
+        loadChildren: () => import('../../componentes/api-rest/api-rest.module').then(m => m.ApiRestModule)
+      },
+
       { path: '', redirectTo: 'paneles', pathMatch: 'full' }
     ]
   },
@@ -54,6 +60,7 @@ const routes: Routes = [
     MatPaginatorModule,
     FormsModule, 
     MatCardModule,
+    HttpClientModule
 
   ]
 })

@@ -7,8 +7,10 @@ import { CrudfirebaseService } from '../../servicios/crudfirebase.service';
   styleUrl: './usuariosfirebase.component.css'
 })
 export class UsuariosfirebaseComponent implements OnInit {
-  email: string = '';
-  password: string = '';
+
+  correo: string = '';
+  clave: string = '';
+  nombre: string= '';
   user: any = null; //Variable para almacenar el usuario autenticado
 
   constructor (private crudService: CrudfirebaseService) {}
@@ -19,10 +21,11 @@ export class UsuariosfirebaseComponent implements OnInit {
 
   //Metodo para agregar un nuevo usuario
   async addUser() {
-    if (this.email && this.password) {
-      await this.crudService.addUser(this.email, this.password);
-      this.email = '';
-      this.password = '';
+    if (this.correo && this.clave) {
+      await this.crudService.addUser(this.correo, this.clave, this.nombre);
+      this.nombre = '';
+      this.correo = '';
+      this.clave = '';
       this.loadUser(); //Refrescar la lista de usuarios
     } else {
       alert('Por favor, ingresa un correo y contraseña');

@@ -9,6 +9,9 @@ import { MatListModule } from '@angular/material/list';
 import { MatPaginatorModule} from '@angular/material/paginator';
 import { MatTableModule} from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 
 
 const routes: Routes = [
@@ -29,6 +32,9 @@ const routes: Routes = [
     MatTableModule, 
     MatPaginatorModule,
     FormsModule, 
+    MatFormFieldModule,
+    MatInputModule
+
 
   ]
 })

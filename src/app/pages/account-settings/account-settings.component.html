@@ -13,22 +13,17 @@
 
 
       <!-- Formulario de configuración de cuenta -->
-      <div *ngIf="currentUser">
+      <div *ngIf="user">
         <h2>Editar Datos de Cuenta</h2>
-        <form (ngSubmit)="confirmChanges()">
+        <form (ngSubmit)="editUser()">
           <mat-form-field class="example-full-width">
             <mat-label>Nombre</mat-label>
-            <input matInput placeholder="Ej. Juan Pérez" [(ngModel)]="accountData.name" name="name">
-          </mat-form-field>
-
-          <mat-form-field class="example-full-width">
-            <mat-label>Email</mat-label>
-            <input matInput type="email" placeholder="Ej. ejemplo@correo.com" [(ngModel)]="accountData.email" name="email">
+            <input matInput placeholder="Ej. Juan Pérez" [(ngModel)]="accountData.nombre" name="name">
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
             <mat-label>Password</mat-label>
-            <input matInput type="password" placeholder="" [(ngModel)]="accountData.password" name="password">
+            <input matInput type="password" placeholder="" [(ngModel)]="accountData.clave" name="password">
           </mat-form-field>
 
           <div class="button-group">

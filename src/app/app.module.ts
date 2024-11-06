@@ -11,6 +11,7 @@ import { FormsModule } from '@angular/forms';
 import { QrDialogComponent } from './pages/qr-dialog/qr-dialog.component';
 import { CrudfirebaseService } from './servicios/crudfirebase.service';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule, 
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFirestoreModule
 
   ],  providers: [
     provideClientHydration(),

@@ -8,18 +8,23 @@
 			<div class="sign-in-htm">
 				<div class="group">
 					<label for="login-email" class="label">Email</label>
-					<input id="login-email" type="text" class="input" [(ngModel)]="loginObj.email">
+					<input id="login-email" type="text" class="input" [(ngModel)]="usuario">
+					<mat-error *ngIf="errors.includes('Usuario es requerido')" style="color: rgba(255, 0, 0, 0.632);"> 
+						Email es requerido
+					  </mat-error>
 				</div>
 				<div class="group">
 					<label for="login-password" class="label">Password</label>
-					<input id="login-password" type="password" class="input" data-type="password" [(ngModel)]="loginObj.password">
+					<input id="login-password" type="password" class="input" data-type="password" [(ngModel)]="clave">
+					<mat-error *ngIf="errors.includes('Clave es requerida')" style="color: rgba(255, 0, 0, 0.632);">
+						Password es requerida
+					  </mat-error>
+					  <mat-error *ngIf="errors.includes('La clave debe contener más de 6 carácteres')" style="color: rgba(255, 0, 0, 0.632);">
+						La clave debe contener más de 6 carácteres
+					  </mat-error>
 				</div>
 				<div class="group">
-					<input id="login-check" type="checkbox" class="check" checked>
-					<label for="login-check"><span class="icon"></span> Mantenerme Conectado</label>
-				</div>
-				<div class="group">
-					<button type="button" class="button" (click)="onLogIn()">Ingresar</button>
+					<button type="button" class="button" (click)="login()">Ingresar</button>
 				</div>
 				<div class="hr"></div>
 				<div class="foot-lnk">
@@ -30,24 +35,25 @@
 			</div>
 			<div class="sign-up-htm">
 				<div class="group">
-					<label for="signup-username" class="label">Username</label>
-					<input id="signup-username" type="text" class="input" [(ngModel)]="signupObj.userName">
-				</div>
-				<div class="group">
-					<label for="signup-password" class="label">Password</label>
-					<input id="signup-password" type="password" class="input" data-type="password" [(ngModel)]="signupObj.password">
-				</div>
-				<div class="group">
-					<label for="signup-password-repeat" class="label">Repetir Password</label>
-					<input id="signup-password-repeat" type="password" class="input" data-type="password" [(ngModel)]="signupObj.passwordV">
+					<label for="Nombre" class="label">Nombre</label>
+					<input id="Nmbre" type="text" class="input" [(ngModel)]="nombre">
 				</div>
 				<div class="group">
 					<label for="signup-email" class="label">Email</label>
-					<input id="signup-email" type="text" class="input" [(ngModel)]="signupObj.email">
+					<input id="signup-email" type="text" class="input" [(ngModel)]="email">
+				</div>
+				<div class="group">
+					<label for="signup-password" class="label">Password</label>
+					<input id="signup-password" type="password" class="input" data-type="password" [(ngModel)]="clave1">
+				</div>
+				<div class="group">
+					<label for="signup-password-repeat" class="label">Repetir Password</label>
+					<input id="signup-password-repeat" type="password" class="input" data-type="password" [(ngModel)]="claveV">
 				</div>
 
+
 				<div class="group">
-					<button type="button" class="button" (click)="onSignUp()">Crear Cuenta</button>
+					<button type="button" class="button" (click)="addUser()">Crear Cuenta</button>
 				</div>
 				<div class="hr"></div>
 			</div>

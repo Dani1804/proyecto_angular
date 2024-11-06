@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { UsuariosfirebaseComponent } from '../../componentes/usuariosfirebase/usuariosfirebase.component';
+
 
 @Component({
   selector: 'app-login',
@@ -42,4 +42,10 @@ export class LoginComponent {
         localStorage.setItem('loginUsers', JSON.stringify(this.loginUsers));
         this.router.navigate(['/home']);
       } else { alert('Credenciales incorrectas'); }
-    } else { alert('Favor ingresar credenciales');}}}
+    } else { alert('Favor ingresar credenciales');}}
+  
+  
+  
+  
+  
+  }

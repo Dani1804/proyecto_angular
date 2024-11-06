@@ -32,13 +32,17 @@ const routes: Routes = [
         path: 'account-settings', 
         loadChildren: () => import('../account-settings/account-settings.module').then(m => m.AccountSettingsModule)
       },
+      { 
+        path: 'usuariosfirebase', 
+        loadChildren: () => import('../../componentes/usuariosfirebase/usuariosfirebase.module').then(m => m.UsuariosfirebaseModule)
+      },
       { path: '', redirectTo: 'paneles', pathMatch: 'full' }
     ]
   },
 ];
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent,],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),  

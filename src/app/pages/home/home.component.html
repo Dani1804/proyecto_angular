@@ -1,10 +1,11 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer mode="side" opened>
     <mat-nav-list>
-      <mat-list-item (click)="navigateTo('paneles')">Paneles</mat-list-item>
-      <mat-list-item (click)="navigateTo('encuesta')">Encuesta</mat-list-item>
-      <mat-list-item (click)="navigateTo('generarQR')">Generar QR</mat-list-item>
+      <mat-list-item (click)="navigateTo('paneles')" >Paneles</mat-list-item>
+      <mat-list-item (click)="navigateTo('encuesta')" >Encuesta</mat-list-item>
+      <mat-list-item (click)="navigateTo('generarQR')" >Generar QR</mat-list-item>
       <mat-list-item (click)="navigateTo('account-settings')">Configuración de cuenta</mat-list-item>
+      <mat-list-item (click)="navigateTo('usuariosfirebase')">Administrar usuarios</mat-list-item>
       <mat-list-item (click)="logout()">Cerrar sesión</mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
@@ -20,6 +21,7 @@
         <mat-icon>account_circle</mat-icon> {{ userName }}
       </span>
     </mat-toolbar>
+
 
       <router-outlet></router-outlet>
 

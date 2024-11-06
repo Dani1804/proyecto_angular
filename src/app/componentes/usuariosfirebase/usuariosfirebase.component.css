@@ -1,0 +1,13 @@
+.container {
+    padding: 16px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  mat-card {
+    border: 1px solid black; /* Para ver el borde del card */
+    padding: 16px; /* Para agregar un poco de espacio interno */
+    margin: 16px; /* Para agregar margen alrededor */
+  }

@@ -9,10 +9,6 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class EncuestaComponent implements OnInit {
   @ViewChild('drawer') drawer!: MatSidenav;
-  signupUsers: any[] = [];
-  loginUsers: any[] = [];
-  currentUser: any = null;
-  userName: string = '';
 
   // Nuevo atributo para almacenar las encuestas
   surveys: any[] = [];
@@ -28,21 +24,7 @@ export class EncuestaComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
-    const signupData = localStorage.getItem('signupUsers');
-    if (signupData) {
-      this.signupUsers = JSON.parse(signupData);
-    }
-    // Recuperar el arreglo de loginUsers desde el localStorage
-    const loginData = localStorage.getItem('loginUsers');
-    if (loginData) {
-      this.loginUsers = JSON.parse(loginData);
-      // Obtener el último usuario logueado (el último en el arreglo)
-      this.currentUser = this.loginUsers[this.loginUsers.length - 1];
-      // Buscar el userName correspondiente al email del usuario logueado
-      const matchedUser = this.signupUsers.find(user => user.email === this.currentUser.email);
-      if (matchedUser) {
-        this.userName = matchedUser.userName;  // Obtener el userName del signupUsers
-      } }
+
     // Recuperar datos desde localStorage
     const surveyData = localStorage.getItem('surveys');
     if (surveyData) {
@@ -50,13 +32,7 @@ export class EncuestaComponent implements OnInit {
     }
   }
 
-  navigateTo(route: string): void {
-    this.router.navigate([route]); // Navegar a la ruta especificada
-  }
 
-  logout(): void {
-    this.router.navigate(['/splash']);  // Redirigir al login al cerrar sesión
-  }
 
   createForm() {
     this.showForm = true;

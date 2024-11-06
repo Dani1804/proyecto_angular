@@ -14,16 +14,13 @@ export class AccountSettingsComponent implements OnInit {
   currentUser: any = null;
   userName: string = '';
   showForm = false;
-  formData = {
-    food: '',
-    comment: ''
-  };
+
 
   // Datos de la cuenta del usuario
   accountData = {
     name: '',
     email: '',
-    phone: ''
+    password: ''
   };
 
   constructor(private router: Router) {}
@@ -48,19 +45,12 @@ export class AccountSettingsComponent implements OnInit {
         this.accountData = { // Cargar datos de cuenta para editar
           name: matchedUser.userName,
           email: matchedUser.email,
-          phone: matchedUser.phone || ''
+          password: matchedUser.password || ''
         };
       }
     }
   }
 
-  navigateTo(route: string): void {
-    this.router.navigate([route]); // Navegar a la ruta especificada
-  }
-
-  logout(): void {
-    this.router.navigate(['/splash']); // Redirigir al login al cerrar sesión
-  }
 
 
 
@@ -79,6 +69,6 @@ export class AccountSettingsComponent implements OnInit {
 
   // Función para limpiar el formulario de configuración de cuenta
   clearForm(): void {
-    this.accountData = { name: '', email: '', phone: '' };
+    this.accountData = { name: '', email: '', password: '' };
   }
 }

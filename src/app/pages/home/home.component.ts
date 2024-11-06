@@ -45,7 +45,7 @@ export class HomeComponent implements OnInit {
   }
 
   navigateTo(route: string): void {
-    this.router.navigate([route]); // Navegar a la ruta especificada
+    this.router.navigate([`/home/${route}`]); // Navegar a la ruta especificada
   }
 
   logout(): void {

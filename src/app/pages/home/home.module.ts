@@ -14,7 +14,27 @@ import { MatCardModule } from '@angular/material/card';
 
 
 const routes: Routes = [
-  { path: '', component: HomeComponent},
+  { path: '', component: HomeComponent,
+    children: [
+      { 
+        path: 'paneles', 
+        loadChildren: () => import('../paneles/paneles.module').then(m => m.PanelesModule)
+      },
+      { 
+        path: 'encuesta', 
+        loadChildren: () => import('../encuesta/encuesta.module').then(m => m.EncuestaModule)
+      },
+      { 
+        path: 'generarQR', 
+        loadChildren: () => import('../generar-qr/generar-qr.module').then(m => m.GenerarQRModule)
+      },
+      { 
+        path: 'account-settings', 
+        loadChildren: () => import('../account-settings/account-settings.module').then(m => m.AccountSettingsModule)
+      },
+      { path: '', redirectTo: 'paneles', pathMatch: 'full' }
+    ]
+  },
 ];
 
 @NgModule({

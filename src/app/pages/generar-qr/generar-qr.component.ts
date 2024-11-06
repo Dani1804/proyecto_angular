@@ -12,20 +12,13 @@ import { QrDialogComponent } from '../qr-dialog/qr-dialog.component';
   styleUrl: './generar-qr.component.css'
 })
 export class GenerarQRComponent implements OnInit , AfterViewInit{
-  
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol', 'qr'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
-
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
   }
    @ViewChild('drawer') drawer!: MatSidenav;
-  signupUsers: any[] = [];
-  loginUsers: any[] = [];
-  currentUser: any = null;
-  userName: string = '';
   constructor( private router: Router, private dialog: MatDialog) { }
   openQrDialog(element: any): void {
     this.dialog.open(QrDialogComponent, {
@@ -34,30 +27,7 @@ export class GenerarQRComponent implements OnInit , AfterViewInit{
   }
   ngOnInit(): void {
     // Recuperar el arreglo de signupUsers desde el localStorage
-    const signupData = localStorage.getItem('signupUsers');
-    if (signupData) {
-      this.signupUsers = JSON.parse(signupData);
-    }
-    // Recuperar el arreglo de loginUsers desde el localStorage
-    const loginData = localStorage.getItem('loginUsers');
-    if (loginData) {
-      this.loginUsers = JSON.parse(loginData);
-      // Obtener el último usuario logueado (el último en el arreglo)
-      this.currentUser = this.loginUsers[this.loginUsers.length - 1];
-      // Buscar el userName correspondiente al email del usuario logueado
-      const matchedUser = this.signupUsers.find(user => user.email === this.currentUser.email);
-      if (matchedUser) {
-        this.userName = matchedUser.userName;  // Obtener el userName del signupUsers
-      }
-    }
-  }
-  navigateTo(route: string): void {
-    this.router.navigate([route]); // Navegar a la ruta especificada
-  }
-  logout(): void {
-    this.router.navigate(['/splash']);  // Redirigir al login al cerrar sesión
-  }
-  
+  } 
 }
 export interface PeriodicElement {
   name: string;

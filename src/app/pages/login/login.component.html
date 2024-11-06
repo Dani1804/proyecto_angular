@@ -45,9 +45,20 @@
 					<label for="signup-email" class="label">Email</label>
 					<input id="signup-email" type="text" class="input" [(ngModel)]="signupObj.email">
 				</div>
+
+				<div class="group">
+					<mat-button-toggle value="usuariosFirebase">
+						CRUD Usuarios Firebase
+					</mat-button-toggle>
+				</div>
+
 				<div class="group">
 					<button type="button" class="button" (click)="onSignUp()">Crear Cuenta</button>
 				</div>
+
+
+				
+
 				<div class="hr"></div>
 			</div>
 		</div>

@@ -9,13 +9,15 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { QrDialogComponent } from './pages/qr-dialog/qr-dialog.component';
-
+import { CrudfirebaseService } from './servicios/crudfirebase.service';
+import { UsuariosfirebaseComponent } from './componentes/usuariosfirebase/usuariosfirebase.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SplashComponent,
     QrDialogComponent,
+    UsuariosfirebaseComponent,
 
   ],
   imports: [
@@ -27,7 +29,8 @@ import { QrDialogComponent } from './pages/qr-dialog/qr-dialog.component';
 
   ],  providers: [
     provideClientHydration(),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    CrudfirebaseService
   ],
 
   bootstrap: [AppComponent]

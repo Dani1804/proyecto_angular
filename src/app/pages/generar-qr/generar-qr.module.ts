@@ -11,6 +11,11 @@ import { MatTableModule} from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
+import { QRCodeModule } from 'angularx-qrcode'; // Módulo para generar códigos QR
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 const routes: Routes = [
   { path: '', component: GenerarQRComponent},
@@ -30,6 +35,12 @@ const routes: Routes = [
     FormsModule,
     MatDialogModule,
     MatButtonModule,
+    QRCodeModule,
+    ZXingScannerModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    
   ]
 })
 export class GenerarQRModule { }

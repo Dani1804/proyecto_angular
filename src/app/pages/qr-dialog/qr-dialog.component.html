@@ -1,7 +1,32 @@
-<h1 mat-dialog-title>QR Code</h1>
-<div mat-dialog-content style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-  <img [src]="qrCodeUrl" alt="QR Code" style="margin: 10px; max-width: 100%; height: auto;">
-</div>
-<div mat-dialog-actions style="justify-content: center;">
-  <button mat-button (click)="closeDialog()">Cerrar</button>
-</div>
+<mat-card>
+  <mat-card-title>Generar Código QR</mat-card-title>
+  <mat-card-content>
+    <!-- Input para el texto que se convertirá en código QR -->
+    <mat-form-field appearance="fill">
+      <mat-label>Texto para QR</mat-label>
+      <input matInput [(ngModel)]="qrData" placeholder="Escribe el texto para el QR">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="generateQRCode()">Generar QR</button>
+
+    <!-- Generar el código QR usando angularx-qrcode -->
+    <div *ngIf="generatedQRCode">
+      <qrcode [qrdata]="generatedQRCode" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
+      <button mat-raised-button color="accent" (click)="downloadQRCode()">Descargar QR</button>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<hr />
+
+<mat-card>
+  <mat-card-title>Escanear Código QR</mat-card-title>
+  <mat-card-content>
+    <!-- Escanear el código QR -->
+    <zxing-scanner (scanSuccess)="handleScanResult($event)"></zxing-scanner>
+
+    <!-- Mostrar el resultado del escaneo -->
+    <div *ngIf="scanResult">
+      <p><strong>Resultado del escaneo:</strong> {{ scanResult }}</p>
+    </div>
+  </mat-card-content>
+</mat-card>

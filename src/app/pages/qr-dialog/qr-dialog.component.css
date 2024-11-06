@@ -1,6 +1,42 @@
-mat-dialog-content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
+/* Estilo general del mat-card */
+mat-card {
+  max-width: 400px; /* Ancho máximo del card */
+  margin: 20px auto; /* Centra el card vertical y horizontalmente */
+  padding: 20px; /* Espaciado interno del card */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+}
+
+/* Título del card */
+mat-card-title {
+  font-size: 24px; /* Tamaño de fuente del título */
+  font-weight: bold; /* Negrita */
+  text-align: center; /* Centra el texto */
+}
+
+/* Contenido del card */
+mat-card-content {
+  display: flex; /* Flexbox para alinear elementos */
+  flex-direction: column; /* Alinea elementos en columna */
+  align-items: center; /* Centra los elementos horizontalmente */
+}
+
+/* Estilo del mat-form-field */
+mat-form-field {
+  width: 100%; /* Ancho completo del campo de formulario */
+  margin-bottom: 16px; /* Espaciado inferior */
+}
+
+/* Botón para generar el QR */
+button {
+  width: 100%; /* Ancho completo del botón */
+  margin-bottom: 16px; /* Espaciado inferior */
+}
+
+/* Estilo para el código QR generado */
+qrcode {
+  margin-top: 20px; /* Espaciado superior */
+  border: 2px solid #1976d2; /* Borde del código QR */
+  border-radius: 4px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno del código QR */
+  background-color: #f5f5f5; /* Color de fondo del QR */
+}

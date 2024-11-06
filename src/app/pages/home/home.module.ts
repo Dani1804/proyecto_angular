@@ -11,6 +11,8 @@ import { MatTableModule} from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -60,7 +62,9 @@ const routes: Routes = [
     MatPaginatorModule,
     FormsModule, 
     MatCardModule,
-    HttpClientModule
+    HttpClientModule,
+    MatFormFieldModule,
+    MatInputModule,
 
   ]
 })

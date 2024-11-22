@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
   
 async addUser() {
   if (this.email && this.clave1){
-    if ( this.clave1 === this.claveV) {
+    if ( this.clave1 === this.claveV && this.clave1.length >= 6 ) {
       await this.crudService.addUser(this.email, this.clave1, this.nombre);
       this.nombre = '';
       this.email = '';
@@ -48,7 +48,7 @@ async addUser() {
       alert('Usuario Ingresado con éxito');
       window.location.reload(); 
     } else {
-      alert('Por favor, ingresa un correo y contraseña');}
+      alert('Por favor, ingresa un correo y contraseña válido de al menos 6 carácteres');}
   }else {
     alert('Las contraseñas no coinciden')
   }}

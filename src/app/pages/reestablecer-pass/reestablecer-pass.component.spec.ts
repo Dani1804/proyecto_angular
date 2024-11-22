@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { FormsModule } from '@angular/forms'; // Importa FormsModule
 import { ReestablecerPassComponent } from './reestablecer-pass.component';
 
 describe('ReestablecerPassComponent', () => {
@@ -8,7 +8,8 @@ describe('ReestablecerPassComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ReestablecerPassComponent]
+      declarations: [ReestablecerPassComponent],
+      imports: [FormsModule] // Agrega FormsModule aquí
     })
     .compileComponents();
 

@@ -1,3 +1,22 @@
+/* Estilos generales para el contenedor del sidenav */
+.sidenav-container {
+  height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+  display: flex; /* Usa flexbox para permitir un diseño flexible */
+  flex-direction: column; /* Asegura que el contenido fluya verticalmente */
+  background-color: lightblue;
+  padding: 0 16px;}
+
+.mat-toolbar {
+  display: flex; /* Usa flexbox para alinear los elementos en la barra de herramientas */
+  align-items: center; /* Centra verticalmente los elementos */
+  padding: 0 16px; /* Añade un poco de padding lateral para evitar que el contenido toque los bordes */
+  box-sizing: border-box;
+  background-color: #1976d2; /* Color primario */
+  color: white;
+  font-size: 1.5rem;
+  justify-content: center;
+  padding: 10px;
+  margin-top: 10px;}
 .container {
     padding: 16px;
   }

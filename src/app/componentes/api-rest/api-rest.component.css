@@ -1,11 +1,20 @@
 /* Estilos para la barra de herramientas (mat-toolbar) */
+.sidenav-container {
+  height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+  display: flex; /* Usa flexbox para permitir un diseño flexible */
+  flex-direction: column; /* Asegura que el contenido fluya verticalmente */
+  background-color: lightblue;
+  padding: 0 16px;
+}
+
 mat-toolbar {
     background-color: #1976d2; /* Color primario */
     color: white;
     font-size: 1.5rem;
     display: flex;
-    justify-content: center;
-    padding: 10px;
+    justify-content: center; 
+    padding: 0 16px;
+    margin-top: 10px;
     h2 {
       margin: 0;
     }
@@ -17,7 +26,7 @@ mat-toolbar {
     flex-direction: column;
     gap: 15px; /* Espacio entre los elementos */
     margin: 20px 0;
-  
+    padding: 0 16px;
     mat-form-field {
       width: 100%; /* El campo toma todo el ancho */
     }

@@ -1,54 +1,60 @@
 /* Estilos generales para el contenedor del sidenav */
 .sidenav-container {
-    height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
-    display: flex; /* Usa flexbox para permitir un diseño flexible */
-    flex-direction: column; /* Asegura que el contenido fluya verticalmente */}
-  /* Estilos para la barra de herramientas */
+  height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
+  display: flex; /* Usa flexbox para permitir un diseño flexible */
+  flex-direction: column; /* Asegura que el contenido fluya verticalmente */
+  background-color: lightblue;
+  padding: 0 16px;}
+/* Estilos para la barra de herramientas */
+.mat-toolbar {
+  display: flex; /* Usa flexbox para alinear los elementos en la barra de herramientas */
+  align-items: center; /* Centra verticalmente los elementos */
+  padding: 0 16px; /* Añade un poco de padding lateral para evitar que el contenido toque los bordes */
+  box-sizing: border-box;
+  background-color: #1976d2; /* Color primario */
+  color: white;
+  font-size: 1.5rem;
+  justify-content: center;
+  padding: 10px;
+  margin-top: 10px;}
+/* Espaciador para empujar el contenido a los extremos */
+.spacer {
+  flex: 1; /* Permite que el espaciador ocupe el espacio disponible */}
+/* Estilos para el contenido principal */
+.content {
+  padding: 20px; /* Añade espacio alrededor del contenido */
+  flex: 1; /* Permite que el contenido crezca y ocupe el espacio restante */}
+/* Estilos para el nombre de usuario */
+.username {
+  display: flex; /* Usa flexbox para alinear el icono y el nombre */
+  align-items: center; /* Centra verticalmente el contenido */
+  font-weight: bold; /* Pone el texto en negrita */
+  justify-content: flex-end;}
+/* Margen derecho para el icono de usuario */
+.username mat-icon {
+  margin-right: 5px; /* Añade espacio entre el icono y el texto */}
+/* Estilos específicos para pantallas pequeñas */
+@media (max-width: 600px) {
+  .mat-sidenav {
+    width: 80%; /* Ajusta el ancho del sidenav para pantallas pequeñas */}
+  .mat-sidenav-content {
+    margin-left: 0; /* Asegura que el contenido principal no tenga margen izquierdo */}
   .mat-toolbar {
-    display: flex; /* Usa flexbox para alinear los elementos en la barra de herramientas */
-    justify-content: space-between; /* Espacia los elementos de la barra de herramientas */
-    align-items: center; /* Centra verticalmente los elementos */
-    padding: 0 16px; /* Añade un poco de padding lateral para evitar que el contenido toque los bordes */
-    box-sizing: border-box;}
-  /* Espaciador para empujar el contenido a los extremos */
-  .spacer {
-    flex: 1; /* Permite que el espaciador ocupe el espacio disponible */}
-  /* Estilos para el contenido principal */
-  .content {
-    padding: 20px; /* Añade espacio alrededor del contenido */
-    flex: 1; /* Permite que el contenido crezca y ocupe el espacio restante */}
-  /* Estilos para el nombre de usuario */
+    justify-content: space-between; /* Asegura que los elementos estén bien espaciados */}
+  .mat-icon-button {
+    margin: 0; /* Asegura que no haya márgenes no deseados */
+    z-index: 2; /* Asegura que el botón de menú esté sobre otros elementos */}
   .username {
-    display: flex; /* Usa flexbox para alinear el icono y el nombre */
-    align-items: center; /* Centra verticalmente el contenido */
-    font-weight: bold; /* Pone el texto en negrita */
-    justify-content: flex-end;}
-  /* Margen derecho para el icono de usuario */
-  .username mat-icon {
-    margin-right: 5px; /* Añade espacio entre el icono y el texto */}
-  /* Estilos específicos para pantallas pequeñas */
-  @media (max-width: 600px) {
-    .mat-sidenav {
-      width: 80%; /* Ajusta el ancho del sidenav para pantallas pequeñas */}
-    .mat-sidenav-content {
-      margin-left: 0; /* Asegura que el contenido principal no tenga margen izquierdo */}
-    .mat-toolbar {
-      justify-content: space-between; /* Asegura que los elementos estén bien espaciados */}
-    .mat-icon-button {
-      margin: 0; /* Asegura que no haya márgenes no deseados */
-      z-index: 2; /* Asegura que el botón de menú esté sobre otros elementos */}
-    .username {
-      justify-content: flex-end; /* Asegura que el nombre de usuario se mantenga a la derecha en pantallas pequeñas */
-    }}
-
-    .example-form {
-      min-width: 150px;
-      max-width: 500px;
-      width: 100%;
-    }
-    
-    .example-full-width {
-      width: 100%;
-    }
+    justify-content: flex-end; /* Asegura que el nombre de usuario se mantenga a la derecha en pantallas pequeñas */
+  }}
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
     
   

@@ -2,7 +2,8 @@
 .sidenav-container {
   height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
   display: flex; /* Usa flexbox para permitir un diseño flexible */
-  flex-direction: column; /* Asegura que el contenido fluya verticalmente */}
+  flex-direction: column; /* Asegura que el contenido fluya verticalmente */
+}
 .mat-sidenav {
   background-color: #1976d252;
   border-width:thin;
@@ -13,7 +14,8 @@
   justify-content: space-between; /* Espacia los elementos de la barra de herramientas */
   align-items: center; /* Centra verticalmente los elementos */
   padding: 0 16px; /* Añade un poco de padding lateral para evitar que el contenido toque los bordes */
-  box-sizing: border-box;}
+  box-sizing: border-box;
+  background-color: #041056;}
 /* Espaciador para empujar el contenido a los extremos */
 .spacer {
   flex: 1; /* Permite que el espaciador ocupe el espacio disponible */}
@@ -26,10 +28,15 @@
   display: flex; /* Usa flexbox para alinear el icono y el nombre */
   align-items: center; /* Centra verticalmente el contenido */
   font-weight: bold; /* Pone el texto en negrita */
-  justify-content: flex-end;}
+  justify-content: flex-end;
+  color: white;}
 /* Margen derecho para el icono de usuario */
 .username mat-icon {
-  margin-right: 5px; /* Añade espacio entre el icono y el texto */}
+  margin-right: 5px; /* Añade espacio entre el icono y el texto */
+  color: white;}
+.title{
+  padding: 10px;
+  color: white;}
 /* Estilos específicos para pantallas pequeñas */
 @media (max-width: 600px) {
   .mat-sidenav {

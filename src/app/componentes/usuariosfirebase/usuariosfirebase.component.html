@@ -1,45 +1,47 @@
-<mat-toolbar color="primary">
-    <span>Administrar Usuarios</span>
-</mat-toolbar>
+<mat-sidenav-container class="sidenav-container">
+  <mat-toolbar color="primary">
+      <span>Administrar Usuarios</span>
+  </mat-toolbar>
 
-<div class="container">
-    <h2>Agregar Usuario</h2>
+  <div class="container">
+      <h2>Agregar Usuario</h2>
 
-        <!-- Mat-form-field para correo electrónico -->
-        <mat-form-field appearance="fill">
-          <mat-label>Nombre</mat-label>
-          <input matInput [(ngModel)]="nombre" type="text" placeholder="Ingresa el nombre"/>
-        </mat-form-field>
-    
-    <!-- Mat-form-field para correo electrónico -->
-    <mat-form-field appearance="fill">
-      <mat-label>Correo</mat-label>
-      <input matInput [(ngModel)]="correo" type="email" placeholder="Ingresa el correo"/>
-    </mat-form-field>
-  
-    <!-- Mat-form-field para contraseña -->
-    <mat-form-field appearance="fill">
-      <mat-label>Contraseña</mat-label>
-      <input matInput [(ngModel)]="clave" type="password" placeholder="Ingresa la contraseña"/>
-    </mat-form-field>
-  
-    <!-- Botón de Angular Material -->
-    <button mat-raised-button color="primary" (click)="addUser()">Agregar Usuario</button>
-  
-    <hr/>
-  
-    <h2>Usuario Actual</h2>
-    
-    <!-- Mostrar usuario autenticado -->
-    <div *ngIf="user; else noUser">
-      <p>Correo: {{ user.correo }}</p>
+          <!-- Mat-form-field para correo electrónico -->
+          <mat-form-field appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput [(ngModel)]="nombre" type="text" placeholder="Ingresa el nombre"/>
+          </mat-form-field>
       
-      <!-- Botón para eliminar usuario autenticado -->
-      <button mat-raised-button color="warn" (click)="deleteUser()">Eliminar Usuario</button>
+      <!-- Mat-form-field para correo electrónico -->
+      <mat-form-field appearance="fill">
+        <mat-label>Correo</mat-label>
+        <input matInput [(ngModel)]="correo" type="email" placeholder="Ingresa el correo"/>
+      </mat-form-field>
+    
+      <!-- Mat-form-field para contraseña -->
+      <mat-form-field appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [(ngModel)]="clave" type="password" placeholder="Ingresa la contraseña"/>
+      </mat-form-field>
+    
+      <!-- Botón de Angular Material -->
+      <button mat-raised-button color="primary" (click)="addUser()">Agregar Usuario</button>
+    
+      <hr/>
+    
+      <h2>Usuario Actual</h2>
+      
+      <!-- Mostrar usuario autenticado -->
+      <div *ngIf="user; else noUser">
+        <p>Correo: {{ user.correo }}</p>
+        
+        <!-- Botón para eliminar usuario autenticado -->
+        <button mat-raised-button color="warn" (click)="deleteUser()">Eliminar Usuario</button>
+      </div>
+    
+      <!-- Plantilla cuando no hay usuario -->
+      <ng-template #noUser>
+        <p>No hay usuario autenticado.</p>
+      </ng-template>
     </div>
-  
-    <!-- Plantilla cuando no hay usuario -->
-    <ng-template #noUser>
-      <p>No hay usuario autenticado.</p>
-    </ng-template>
-  </div>
+</mat-sidenav-container>

@@ -3,6 +3,8 @@
     height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
     display: flex; /* Usa flexbox para permitir un diseño flexible */
     flex-direction: column; /* Asegura que el contenido fluya verticalmente */
+    padding: 0 16px;
+    background-color: lightblue;
   }
   /* Estilos para la barra de herramientas */
   .mat-toolbar {
@@ -17,6 +19,7 @@
     display: flex;
     justify-content: center;
     padding: 10px;
+    margin-top: 10px;
   }
   /* Espaciador para empujar el contenido a los extremos */
   .spacer {
@@ -25,7 +28,10 @@
   .content {
     padding: 20px; /* Añade espacio alrededor del contenido */
     flex: 1; /* Permite que el contenido crezca y ocupe el espacio restante */}
-    
+  .filter-buttons {
+    padding: 10px;
+    padding-left: 0;
+  }
   /* Estilos para el nombre de usuario */
   .username {
     display: flex; /* Usa flexbox para alinear el icono y el nombre */
@@ -46,6 +52,7 @@
     .mat-icon-button {
       margin: 0; /* Asegura que no haya márgenes no deseados */
       z-index: 2; /* Asegura que el botón de menú esté sobre otros elementos */}
+
     .username {
       justify-content: flex-end; /* Asegura que el nombre de usuario se mantenga a la derecha en pantallas pequeñas */
     }}

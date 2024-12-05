@@ -29,22 +29,21 @@ a {
 
 .login-wrap {
     width: 100%;
-    margin: auto;
-    max-width: 525px;
-    min-height: 670px;
-    position: relative;
+    height: 100%;
+    margin: 0;
+    position: center;
     background: url(https://raw.githubusercontent.com/khadkamhn/day-01-login-form/master/img/bg.jpg)
         no-repeat center;
-    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
-        0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    background-size: cover;
 }
 
 .login-html {
     width: 100%;
-    height: 100%;
-    position: absolute;
-    padding: 90px 70px 50px 70px;
+    height: 100vh;
+    position: center;
     background: rgba(40, 57, 101, 0.9);
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
 }
 
 .login-html .sign-in-htm,
@@ -101,6 +100,7 @@ a {
     margin: 0 15px 10px 0;
     display: inline-block;
     border-bottom: 2px solid transparent;
+
 }
 
 .login-html .sign-in:checked + .tab,
@@ -110,10 +110,17 @@ a {
 }
 
 .login-form {
-    min-height: 345px;
-    position: relative;
+    width: 100%;
+    max-width: 525px; /* Asegura que el formulario tenga un ancho máximo */
+    min-height: 670px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    /*min-height: 345px;
+    position: auto;
     perspective: 1000px;
-    transform-style: preserve-3d;
+    transform-style: preserve-3d;*/
 }
 
 .login-form .group {

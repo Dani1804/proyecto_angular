@@ -3,10 +3,12 @@
   height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la pantalla */
   display: flex; /* Usa flexbox para permitir un diseño flexible */
   flex-direction: column; /* Asegura que el contenido fluya verticalmente */
+  background-color: #1976d252;
 }
 .mat-sidenav {
   background-color: #1976d252;
   border-width:thin;
+  border-radius: 0%;
 }
 /* Estilos para la barra de herramientas */
 .mat-toolbar {

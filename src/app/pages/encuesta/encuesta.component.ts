@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
+import { SurveyService } from  '../../servicios/survey.service'
+
+
 
 @Component({
   selector: 'app-encuesta',
@@ -10,48 +13,49 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class EncuestaComponent implements OnInit {
   @ViewChild('drawer') drawer!: MatSidenav;
 
-  // Nuevo atributo para almacenar las encuestas
   surveys: any[] = [];
   showForm = false;
-
-  // Modificar formData para incluir preguntas
   formData = {
-    name: '', // Nombre de la encuesta
-    questions: [{ question: '', answerType: 'text' }], // Preguntas iniciales
-    id: null // Agregar id para la encuesta
+    name: '',
+    questions: [{ question: '', answerType: 'text' }],
+    id: null as number | null
   };
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private surveyService: SurveyService) {}
 
   ngOnInit(): void {
-
-    // Recuperar datos desde localStorage
-    const surveyData = localStorage.getItem('surveys');
-    if (surveyData) {
-      this.surveys = JSON.parse(surveyData);
-    }
+    this.loadSurveys();
   }
 
-
+  loadSurveys() {
+    this.surveyService.getSurveys().subscribe(
+      (data) => this.surveys = data,
+      (error) => console.error('Error al cargar encuestas:', error)
+    );
+  }
 
   createForm() {
     this.showForm = true;
-    this.formData = { name: '', questions: [{ question: '', answerType: 'text' }], id: null }; // Reset form
+    this.formData = { name: '', questions: [{ question: '', answerType: 'text' }], id: null };
   }
 
   editForm(surveyId: number) {
-    this.showForm = true;
     const surveyToEdit = this.surveys.find(survey => survey.id === surveyId);
     if (surveyToEdit) {
-      this.formData = { ...surveyToEdit }; // Cargar los datos del formulario existente para editar
+      this.formData = { ...surveyToEdit };
+      this.showForm = true;
     }
   }
 
   deleteForm(surveyId: number) {
     if (confirm('¿Estás seguro de que deseas eliminar esta encuesta?')) {
-      this.surveys = this.surveys.filter(survey => survey.id !== surveyId); // Eliminar la encuesta
-      this.updateSurveysInLocalStorage();
-      alert('Encuesta eliminada con éxito.');
+      this.surveyService.deleteSurvey(surveyId).subscribe(
+        () => {
+          this.surveys = this.surveys.filter(survey => survey.id !== surveyId);
+          alert('Encuesta eliminada con éxito.');
+        },
+        (error) => console.error('Error al eliminar la encuesta:', error)
+      );
     }
   }
 
@@ -62,37 +66,35 @@ export class EncuestaComponent implements OnInit {
   saveForm() {
     if (this.formData.id) {
       // Actualizar encuesta existente
-      const index = this.surveys.findIndex(survey => survey.id === this.formData.id);
-      if (index !== -1) {
-        this.surveys[index] = { ...this.formData }; // Actualiza la encuesta
-      }
+      this.surveyService.updateSurvey(this.formData.id, this.formData).subscribe(
+        () => {
+          this.loadSurveys();
+          this.showForm = false;
+        },
+        (error) => console.error('Error al actualizar la encuesta:', error)
+      );
     } else {
       // Crear nueva encuesta
-      const newSurvey = {
-        ...this.formData,
-        id: Date.now() // Generar un ID único basado en el timestamp
-      };
-      this.surveys.push(newSurvey); // Agregar nueva encuesta
+      this.formData.id= Date.now();
+      this.surveyService.createSurvey(this.formData).subscribe(
+        () => {
+          this.loadSurveys();
+          this.showForm = false;
+        },
+        (error) => console.error('Error al crear la encuesta:', error)
+      );
     }
-
-    this.updateSurveysInLocalStorage();
-    this.showForm = false; // Opcionalmente ocultar el formulario después de guardar
-    console.log('Formulario guardado:', this.formData);
   }
 
   addQuestion() {
-    this.formData.questions.push({ question: '', answerType: 'text' }); // Agregar nueva pregunta
+    this.formData.questions.push({ question: '', answerType: 'text' });
   }
 
   deleteQuestion(index: number) {
     if (this.formData.questions.length > 1) {
-      this.formData.questions.splice(index, 1); // Eliminar pregunta
+      this.formData.questions.splice(index, 1);
     } else {
       alert('Debes tener al menos una pregunta.');
     }
-  }
-
-  private updateSurveysInLocalStorage() {
-    localStorage.setItem('surveys', JSON.stringify(this.surveys)); // Guardar encuestas en localStorage
   }
 }

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-paneles',
@@ -10,7 +11,7 @@ import { MatTableDataSource } from '@angular/material/table';
   styleUrls: ['./paneles.component.css']
 })
 export class PanelesComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['id', 'nombre', 'respuestas', 'detalle'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -29,12 +30,12 @@ export class PanelesComponent implements OnInit, AfterViewInit {
 
   // Función para aplicar filtros
   applyFilter(filterValue: string) {
-    if (filterValue === 'symbol') {
-      this.dataSource.filterPredicate = (data, filter) => data.symbol.toLowerCase().includes(filter);
-      this.dataSource.filter = 'symbol'; // Filtrar por símbolo
-    } else if (filterValue === 'weight') {
-      this.dataSource.filterPredicate = (data, filter) => data.weight.toString().includes(filter);
-      this.dataSource.filter = 'weight'; // Filtrar por peso
+    if (filterValue === 'nombre') {
+      this.dataSource.filterPredicate = (data, filter) => data.nombre.toLowerCase().includes(filter);
+      this.dataSource.filter = 'Nombre'; // Filtrar por símbolo
+    } else if (filterValue === 'respuestas') {
+      this.dataSource.filterPredicate = (data, filter) => data.respuestas.toString().includes(filter);
+      this.dataSource.filter = 'respuestas'; // Filtrar por peso
     }
   }
 
@@ -45,31 +46,16 @@ export class PanelesComponent implements OnInit, AfterViewInit {
 }
 
 export interface PeriodicElement {
-  name: string;
-  position: number;
-  weight: number;
-  symbol: string;
+  id: number;
+  nombre: string;
+  respuestas: number;
+  detalle: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  { position: 2, name: 'Helium', weight: 4.0026, symbol: 'He' },
-  { position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li' },
-  { position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be' },
-  { position: 5, name: 'Boron', weight: 10.811, symbol: 'B' },
-  { position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C' },
-  { position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N' },
-  { position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O' },
-  { position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F' },
-  { position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne' },
-  { position: 11, name: 'Sodium', weight: 22.9897, symbol: 'Na' },
-  { position: 12, name: 'Magnesium', weight: 24.305, symbol: 'Mg' },
-  { position: 13, name: 'Aluminum', weight: 26.9815, symbol: 'Al' },
-  { position: 14, name: 'Silicon', weight: 28.0855, symbol: 'Si' },
-  { position: 15, name: 'Phosphorus', weight: 30.9738, symbol: 'P' },
-  { position: 16, name: 'Sulfur', weight: 32.065, symbol: 'S' },
-  { position: 17, name: 'Chlorine', weight: 35.453, symbol: 'Cl' },
-  { position: 18, name: 'Argon', weight: 39.948, symbol: 'Ar' },
-  { position: 19, name: 'Potassium', weight: 39.0983, symbol: 'K' },
-  { position: 20, name: 'Calcium', weight: 40.078, symbol: 'Ca' },
+  { id: 1733782566879, nombre: 'Encuesta fideos', respuestas: 500, detalle: 'Más información' },
+  { id: 1733782584631, nombre: 'Encuesta porotos', respuestas: 2000, detalle: 'Más información' },
+  { id: 1733782602715, nombre: 'Encuesta Macarrones', respuestas: 700, detalle: 'Más información' },
+  { id: 1733782613296, nombre: 'Encuesta Harinas', respuestas: 300, detalle: 'Más información' },
+  { id: 1733782624567, nombre: 'Encuesta Aceites', respuestas: 200, detalle: 'Más información' },
 ];

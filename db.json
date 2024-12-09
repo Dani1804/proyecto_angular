@@ -1,19 +1,76 @@
 {
-  "users": [
+  "surveys": [
     {
-      "id": "1",
-      "name": "John Doe A",
-      "email": "john@example.com"
+      "id": "1733782566879",
+      "name": "Encuesta fideos",
+      "questions": [
+        {
+          "question": "asdasdasd",
+          "answerType": "text"
+        },
+        {
+          "question": "aasfasf",
+          "answerType": "text"
+        },
+        {
+          "question": "adssda",
+          "answerType": "text"
+        }
+      ]
     },
     {
-      "id": "2",
-      "name": "Jane Doe",
-      "email": "jane@example.com"
+      "id": "1733782584631",
+      "name": "Encuesta porotos",
+      "questions": [
+        {
+          "question": "asfasfafs",
+          "answerType": "text"
+        },
+        {
+          "question": "asdasf",
+          "answerType": "text"
+        }
+      ]
     },
     {
-      "id": "3",
-      "name": "Valeria Ruminot",
-      "email": "v.ruminot@profesor.duoc.cl"
+      "id": "1733782602715",
+      "name": "Encuesta Macarrones",
+      "questions": [
+        {
+          "question": "asdasdsad",
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "1733782613296",
+      "name": "Encuesta Harinas",
+      "questions": [
+        {
+          "question": "asasasgasf",
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": "1733782624567",
+      "name": "Encuesta Aceites",
+      "questions": [
+        {
+          "question": "asfsaasg",
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": 1733784745662,
+      "name": "prueba2",
+      "questions": [
+        {
+          "question": "asdasfasf",
+          "answerType": "text"
+        }
+      ]
     }
   ]
 }

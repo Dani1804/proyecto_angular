@@ -4,10 +4,8 @@
       <mat-list-item (click)="navigateTo('paneles')" >Paneles</mat-list-item>
       <mat-list-item (click)="navigateTo('encuesta')" >Encuesta</mat-list-item>
       <mat-list-item (click)="navigateTo('generarQR')" >Generar QR</mat-list-item>
-      <mat-list-item (click)="navigateTo('account-settings')">Configuración de cuenta</mat-list-item>
       <mat-list-item (click)="navigateTo('usuariosfirebase')">Administrar usuarios</mat-list-item>
       <mat-list-item (click)="navigateTo('apiRest')">Api-rest</mat-list-item>
-      <mat-list-item (click)="logout()">Cerrar sesión</mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
 
@@ -19,10 +17,17 @@
       <span class="title">Bienvenido a Polling Owl</span>
       <span class="spacer"></span>
       <span class="username">
-        <mat-icon>account_circle</mat-icon> {{ user.nombre }}
+       <mat-icon [matMenuTriggerFor]="userMenu">account_circle</mat-icon> {{ user.nombre }}
       </span>
     </mat-toolbar>
-
+    <mat-menu #userMenu="matMenu">
+      <button mat-menu-item (click)="navigateTo('account-settings')">
+        <mat-icon>settings</mat-icon> Configuración de cuenta
+      </button>
+      <button mat-menu-item (click)="signOut()">
+        <mat-icon>logout</mat-icon> Cerrar sesión
+      </button>
+    </mat-menu>
 
       <router-outlet></router-outlet>
 

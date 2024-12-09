@@ -88,7 +88,7 @@ export class CrudfirebaseService {
     try {
       await this.afAuth.signOut();
       console.log('Sesión cerrada');
-      this.router.navigate(['/login'])
+      this.router.navigate(['/splash'])
     } catch (error: any) { // Hacer un casting del error a 'any'
       console.error('Error al cerrar sesión:', error);
     }

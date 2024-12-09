@@ -13,6 +13,7 @@ import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 
@@ -65,6 +66,7 @@ const routes: Routes = [
     HttpClientModule,
     MatFormFieldModule,
     MatInputModule,
+    MatMenuModule,
 
   ]
 })

@@ -22,11 +22,12 @@ export class HomeComponent implements OnInit {
     this.router.navigate([`/home/${route}`]); // Navegar a la ruta especificada
   }
 
-  logout(): void {
-    this.router.navigate(['/splash']);  // Redirigir al login al cerrar sesión
-  }
-
   async loadUser() {
     this.user = await this.crudService.getUser();
   }
-}
+
+
+  async signOut() {
+    this.user = await this.crudService.signOut();
+
+  }}

@@ -18,6 +18,7 @@
   padding: 0 16px; /* Añade un poco de padding lateral para evitar que el contenido toque los bordes */
   box-sizing: border-box;
   background-color: #041056;}
+
 /* Espaciador para empujar el contenido a los extremos */
 .spacer {
   flex: 1; /* Permite que el espaciador ocupe el espacio disponible */}

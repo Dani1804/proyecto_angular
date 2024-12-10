@@ -14,7 +14,7 @@
       <div *ngIf="showForm" class="survey-form">
         <h3>{{ formData.id !== 0 ? 'Editar Encuesta' : 'Crear Encuesta' }}</h3>
         <form #surveyForm="ngForm" (ngSubmit)="saveForm()">
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="fill" style="width: 50%;">
             <mat-label>Nombre de la Encuesta</mat-label>
             <input
               matInput
@@ -30,7 +30,7 @@
 
           <h4>Preguntas</h4>
           <div *ngFor="let question of formData.questions; let i = index">
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="fill" style="width: 50%;">
               <mat-label>Pregunta {{ i + 1 }}</mat-label>
               <input
                 matInput
@@ -48,18 +48,19 @@
               color="warn"
               type="button"
               (click)="deleteQuestion(i)"
+              style="margin: 10px;"
             >
               Eliminar Pregunta
             </button>
           </div>
-          <button mat-flat-button color="accent" type="button" (click)="addQuestion()">
+          <button mat-flat-button color="accent" type="button" (click)="addQuestion()" style="margin: 10px;">
             Agregar Pregunta
           </button>
 
-          <button mat-raised-button color="primary" [disabled]="surveyForm.invalid" type="submit">
+          <button mat-raised-button color="primary" [disabled]="surveyForm.invalid" type="submit" style="margin: 10px;">
             {{ formData.id ? 'Actualizar Encuesta' : 'Generar Encuesta' }}
           </button>
-           <button mat-button type="button" (click)="showForm = false">Cancelar</button>
+           <button mat-button type="button" style="margin: 10px;" (click)="showForm = false">Cancelar</button>
           <br />
         </form>
       </div>

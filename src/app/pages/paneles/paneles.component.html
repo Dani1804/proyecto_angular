@@ -13,7 +13,7 @@
     </div>
 
     <div class="mat-elevation-z8">
-      <table mat-table [dataSource]="dataSource">
+      <table mat-table [dataSource]="dataSource" style="background-color: #ffc83c;">
         <!-- Columnas de la tabla -->
         <ng-container matColumnDef="id">
           <th mat-header-cell *matHeaderCellDef> ID encuesta </th>
@@ -38,7 +38,7 @@
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      <mat-paginator class="paginator" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
     </div>
 
     <div class="content">

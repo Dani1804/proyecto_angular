@@ -20,7 +20,11 @@
     justify-content: center;
     padding: 10px;
     margin-top: 10px;
+    margin-bottom: 10px;
   }
+.paginator {
+  background-color: #ffb700;
+}
 /* Espaciador para empujar el contenido a los extremos */
 .spacer {
   flex: 1; /* Permite que el espaciador ocupe el espacio disponible */}

@@ -20,12 +20,19 @@
     padding: 10px;
     margin-top: 10px;
   }
+
+  .mat-form-field {
+    display: block;
+  }
+  
   .survey-form {
-    background-color: white;
-    padding: 0 16px;
+    background-color: #ffca42;
+    padding: 0 10px;
     margin-bottom: 30px;
     padding-top: 5px;
     padding-bottom: 20px;
+    border-radius: 5%;
+    width: 60%;
   }
   /* Espaciador para empujar el contenido a los extremos */
   .spacer {

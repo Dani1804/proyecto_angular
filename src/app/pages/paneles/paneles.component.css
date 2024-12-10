@@ -32,6 +32,9 @@
     padding: 10px;
     padding-left: 0;
   }
+  .paginator {
+    background-color: #ffb700;
+  }
   /* Estilos para el nombre de usuario */
   .username {
     display: flex; /* Usa flexbox para alinear el icono y el nombre */

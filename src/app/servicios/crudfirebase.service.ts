@@ -188,4 +188,39 @@ export class CrudfirebaseService {
       alert('No se pudo eliminar el usuario: ' + error.message);
     }
   }
+  async addClient(nom_cliente: string, telefono: string, nom_comuna: string, correo: string): Promise<void> {
+    try {
+      // Crea un nuevo documento en la colección "Cliente"
+      const clientData = {
+        nom_cliente,
+        telefono,
+        nom_comuna,
+        correo,
+      };
+  
+      await this.firestore.collection('Cliente').add(clientData);
+  
+      console.log('Cliente agregado correctamente:', clientData);
+      alert('Cliente agregado exitosamente.');
+    } catch (error: any) {
+      console.error('Error al agregar cliente:', error);
+      alert('No se pudo agregar el cliente: ' + error.message);
+    }
+  }
+  async addSurveyResponses(surveyId: number, responses: any[]): Promise<void> {
+    try {
+      // Crea un nuevo documento en la colección "Resp. encuesta" con un ID único
+      await this.firestore.collection('respuestaEncuesta').add({
+        surveyId: surveyId,  // Si deseas vincularlo con una encuesta específica
+        respuesta: responses, // El arreglo de respuestas
+        id_respuesta: Math.floor(Math.random() * 1000000),
+      });
+  
+      console.log('Respuestas de encuesta guardadas correctamente');
+      alert('Respuestas guardadas exitosamente.');
+    } catch (error: any) {
+      console.error('Error al guardar las respuestas de la encuesta:', error);
+      alert('No se pudieron guardar las respuestas: ' + error.message);
+    }
+  }
 }

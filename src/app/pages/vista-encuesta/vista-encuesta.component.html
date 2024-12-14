@@ -1,5 +1,11 @@
 <body>
   <div *ngIf="survey" class="survey-container">
+    <div *ngIf="isAuthenticated">
+      <button mat-menu-item (click)="navigateTo('encuesta')">
+        <mat-icon>logout</mat-icon> volver a encuestas
+      </button>
+    </div>
+
     <!-- Formulario de datos del usuario -->
     <div class="user-form">
       <h2>Datos del Participante</h2>
@@ -30,14 +36,24 @@
       
       <!-- Pregunta de tipo texto -->
       <div *ngIf="question.answerType === 'text'">
-        <label for="answer-{{ i }}">Respuesta:</label>
-        <input type="text" id="answer-{{ i }}" [(ngModel)]="question.answer" placeholder="Escribe tu respuesta aquí" />
+        <label for="answer-{{ question.id }}">Respuesta:</label>
+        <input 
+          type="text" 
+          id="answer-{{ question.id }}" 
+          [(ngModel)]="question.answer" 
+          placeholder="Escribe tu respuesta aquí" 
+          (change)="onAnswerQuestion(question.id, question.answer)"
+        />
       </div>
 
       <!-- Pregunta de tipo selección -->
       <div class="AnswerForm" *ngIf="question.answerType === 'select'">
-        <label for="answer-{{ i }}">Seleccione una opción:</label>
-        <select id="answer-{{ i }}" [(ngModel)]="question.answer">
+        <label for="answer-{{ question.id }}">Seleccione una opción:</label>
+        <select 
+          id="answer-{{ question.id }}" 
+          [(ngModel)]="question.answer" 
+          (change)="onAnswerQuestion(question.id, question.answer)"
+        >
           <option value="opcion1">Opción 1</option>
           <option value="opcion2">Opción 2</option>
         </select>
@@ -45,7 +61,7 @@
     </div>
 
     <!-- Botón para guardar las respuestas -->
-    <div class="submit-container">
+    <div class="submit-container" *ngIf="!isAuthenticated">
       <button class="submit-btn" (click)="guardarEncuesta()">Guardar Encuesta</button>
     </div>
   </div>

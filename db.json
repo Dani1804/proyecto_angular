@@ -4,6 +4,7 @@
       "userId": "L0MdDBf1TTTgTLfTIUy8kBO0dUo2",
       "id": "1733782566879",
       "name": "Encuesta fideos",
+      "answer": "1",
       "questions": [
         {
           "question": "asdasdasd",
@@ -23,6 +24,7 @@
       "userId": "L0MdDBf1TTTgTLfTIUy8kBO0dUo2",
       "id": "1733782584631",
       "name": "Encuesta porotos",
+      "answer": "1",
       "questions": [
         {
           "question": "asfasfafs",
@@ -38,6 +40,7 @@
       "userId": "L0MdDBf1TTTgTLfTIUy8kBO0dUo2",
       "id": "1733782602715",
       "name": "Encuesta Macarrones",
+      "answer": "1",
       "questions": [
         {
           "question": "asdasdsad",
@@ -49,6 +52,7 @@
       "userId": "L0MdDBf1TTTgTLfTIUy8kBO0dUo2",
       "id": "1733782613296",
       "name": "Encuesta Harinas",
+      "answer": "1",
       "questions": [
         {
           "question": "asasasgasf",
@@ -60,6 +64,7 @@
       "userId": "L0MdDBf1TTTgTLfTIUy8kBO0dUo2",
       "id": "1733782624567",
       "name": "Encuesta Aceites",
+      "answer": "1",
       "questions": [
         {
           "question": "asfsaasg",
@@ -71,6 +76,7 @@
       "userId": "L0MdDBf1TTTgTLfTIUy8kBO0dUo2",
       "id": "1734143896021",
       "name": "encuesta manjarate",
+      "answer": "1",
       "questions": [
         {
           "question": "asdasfsaf",
@@ -82,6 +88,7 @@
       "id": "1734145413091",
       "userId": "uZxWrEgqOgcUlbDgrP0j06RBJ2A2",
       "name": "encuesta testa",
+      "answer": "1",
       "questions": [
         {
           "question": "asdsafasf",
@@ -93,6 +100,7 @@
       "id": "1734149752294",
       "userId": "uZxWrEgqOgcUlbDgrP0j06RBJ2A2",
       "name": "Encuesta Seria",
+      "answer": "1",
       "questions": [
         {
           "question": "Pregunta seria 1",
@@ -128,6 +136,7 @@
       "id": 1734151614023,
       "userId": "yIJSFt0XYAe5VurtgiDnYlgaIoI2",
       "name": "Encuesta WonderDoll",
+      "answer": "1",
       "questions": [
         {
           "question": "¿Qué tipo de muñecas prefieres comprar?",

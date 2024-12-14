@@ -45,7 +45,7 @@ async addUser() {
       this.nombre = '';
       this.email = '';
       this.clave1 = '';
-      alert('Usuario Ingresado con éxito');
+      alert('Usuario Creado con éxito');
       window.location.reload(); 
     } else {
       alert('Por favor, ingresa un correo y contraseña válido de al menos 6 carácteres');}

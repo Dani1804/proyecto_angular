@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
 import { SurveyService } from  '../../servicios/survey.service'
-
+import { CrudfirebaseService } from '../../servicios/crudfirebase.service';
 
 
 @Component({
@@ -12,31 +12,37 @@ import { SurveyService } from  '../../servicios/survey.service'
 })
 export class EncuestaComponent implements OnInit {
   @ViewChild('drawer') drawer!: MatSidenav;
-
+  user: any = null;
   surveys: any[] = [];
   showForm = false;
   formData = {
+    userId: '',
     name: '',
     questions: [{ question: '', answerType: 'text' }],
     id: null as number | null
   };
 
-  constructor(private router: Router, private surveyService: SurveyService) {}
+  constructor(private router: Router, private surveyService: SurveyService, private crudService: CrudfirebaseService) {}
 
   ngOnInit(): void {
-    this.loadSurveys();
+    this.loadUser().then(() => {
+      this.loadSurveys();
+    });
   }
-
-  loadSurveys() {
-    this.surveyService.getSurveys().subscribe(
-      (data) => this.surveys = data,
+  async loadUser() {
+    this.user = await this.crudService.getUser();
+  }
+  async loadSurveys() {
+    const surveys$ = await this.surveyService.getSurveys();
+    surveys$.subscribe(
+      (data) => (this.surveys = data),
       (error) => console.error('Error al cargar encuestas:', error)
     );
   }
 
   createForm() {
     this.showForm = true;
-    this.formData = { name: '', questions: [{ question: '', answerType: 'text' }], id: null };
+    this.formData = { userId:'', name: '', questions: [{ question: '', answerType: 'text' }], id: null };
   }
 
   editForm(surveyId: number) {
@@ -75,14 +81,16 @@ export class EncuestaComponent implements OnInit {
       );
     } else {
       // Crear nueva encuesta
-      this.formData.id= Date.now();
-      this.surveyService.createSurvey(this.formData).subscribe(
-        () => {
-          this.loadSurveys();
-          this.showForm = false;
-        },
-        (error) => console.error('Error al crear la encuesta:', error)
-      );
+      this.formData.id = Date.now();
+      this.surveyService.createSurvey(this.formData).then((observable) => {
+        observable.subscribe(
+          () => {
+            this.loadSurveys();
+            this.showForm = false;
+          },
+          (error) => console.error('Error al crear la encuesta:', error)
+        );
+      });
     }
   }
 

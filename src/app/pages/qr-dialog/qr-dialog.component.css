@@ -1,9 +1,10 @@
 /* Estilo general del mat-card */
 mat-card {
   max-width: 400px; /* Ancho máximo del card */
-  margin: 20px auto; /* Centra el card vertical y horizontalmente */
+  margin: auto; /* Centra el card vertical y horizontalmente */
   padding: 20px; /* Espaciado interno del card */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+  background-color: #ffb700;
 }
 
 /* Título del card */
@@ -23,17 +24,20 @@ mat-card-content {
 /* Estilo del mat-form-field */
 mat-form-field {
   width: 100%; /* Ancho completo del campo de formulario */
-  margin-bottom: 16px; /* Espaciado inferior */
+  margin-top: 16px;
 }
-
+ 
 /* Botón para generar el QR */
 button {
   width: 100%; /* Ancho completo del botón */
-  margin-bottom: 16px; /* Espaciado inferior */
+  margin-bottom: 20px; /* Espaciado inferior */
 }
 
+.DownloadQR {
+  margin-top: 16px;
+}
 /* Estilo para el código QR generado */
-qrcode {
+.qrcode {
   margin-top: 20px; /* Espaciado superior */
   border: 2px solid #1976d2; /* Borde del código QR */
   border-radius: 4px; /* Bordes redondeados */

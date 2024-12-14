@@ -87,19 +87,23 @@
           </ng-container>
 
           <!-- Columna para botones de acción -->
-          <ng-container matColumnDef="actions">
+          <ng-container class="ActionButtons" matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef> Acciones </th>
             <td mat-cell *matCellDef="let survey">
-              <button mat-icon-button (click)="viewSurvey(survey.id)">
-                <mat-icon>visibility</mat-icon>
-              </button>
-              <button mat-icon-button (click)="editForm(survey.id)">
-                <mat-icon>edit</mat-icon>
-              </button>
-              <button mat-icon-button color="warn" (click)="deleteForm(survey.id)">
-                <mat-icon>delete</mat-icon>
-              </button>
-              <button mat-raised-button color="primary" (click)="openQrDialog(survey.id)">Generar QR</button>
+              <div class="button-container">
+                <button mat-icon-button (click)="viewSurvey(survey.id)">
+                  <mat-icon>visibility</mat-icon>
+                </button>
+                <button mat-icon-button (click)="editForm(survey.id)">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button color="warn" (click)="deleteForm(survey.id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+                <button class="QRButton" mat-raised-button color="primary" (click)="openQrDialog(survey.id)">
+                  Generar QR
+                </button>
+              </div>
             </td>
           </ng-container>
 

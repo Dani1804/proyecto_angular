@@ -34,6 +34,27 @@
     border-radius: 5%;
     width: 60%;
   }
+
+  .mat-elevation-z8 {
+    background-color: #ffb700;
+  }
+
+  .button-container {
+    display: flex; /* Usamos flexbox para alinear los botones */
+    align-items: center; /* Alinea verticalmente los botones */
+    justify-content: flex-start; /* Alinea los botones hacia el inicio (de izquierda a derecha) */
+    gap: 10px; /* Espaciado entre los botones */
+  }
+  
+  /* Si deseas que los botones estén alineados y tengan un tamaño consistente */
+  .button-container button {
+    margin: 0; /* Elimina márgenes para mantener la alineación consistente */
+  }
+  
+  /* Estilo adicional para la clase QRButton si es necesario */
+  .QRButton {
+    margin-left: 10px; /* Agrega espacio a la izquierda del botón QR */
+  }
   /* Espaciador para empujar el contenido a los extremos */
   .spacer {
     flex: 1; /* Permite que el espaciador ocupe el espacio disponible */}

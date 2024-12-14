@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { MatSidenav } from '@angular/material/sidenav';
 import { SurveyService } from  '../../servicios/survey.service'
 import { CrudfirebaseService } from '../../servicios/crudfirebase.service';
+import { MatDialog } from '@angular/material/dialog';
+import { QrDialogComponent } from '../qr-dialog/qr-dialog.component';
 
 
 @Component({
@@ -22,7 +24,14 @@ export class EncuestaComponent implements OnInit {
     id: null as number | null
   };
 
-  constructor(private router: Router, private surveyService: SurveyService, private crudService: CrudfirebaseService) {}
+  constructor(private router: Router, private surveyService: SurveyService, private crudService: CrudfirebaseService, private dialog: MatDialog) {}
+  openQrDialog(surveyId: number): void {
+    const surveyToEdit = this.surveys.find(survey => survey.id === surveyId);
+    this.formData = { ...surveyToEdit };
+    this.dialog.open(QrDialogComponent, {
+      data: this.formData
+    });
+  }
 
   ngOnInit(): void {
     this.loadUser().then(() => {
@@ -32,7 +41,7 @@ export class EncuestaComponent implements OnInit {
   async loadUser() {
     this.user = await this.crudService.getUser();
   }
-  async loadSurveys() {
+  async loadSurveys(): Promise<void> {
     const surveys$ = await this.surveyService.getSurveys();
     surveys$.subscribe(
       (data) => (this.surveys = data),
@@ -65,8 +74,8 @@ export class EncuestaComponent implements OnInit {
     }
   }
 
-  viewSurvey(surveyId: number) {
-    this.router.navigate(['/view-survey', surveyId]);
+  viewSurvey( surveyId: number): void {
+    this.router.navigate(['/home/vistaEncuesta/', surveyId]);
   }
 
   saveForm() {

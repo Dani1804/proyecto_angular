@@ -28,10 +28,7 @@ const routes: Routes = [
         path: 'encuesta', 
         loadChildren: () => import('../encuesta/encuesta.module').then(m => m.EncuestaModule)
       },
-      { 
-        path: 'generarQR', 
-        loadChildren: () => import('../generar-qr/generar-qr.module').then(m => m.GenerarQRModule)
-      },
+
       { 
         path: 'account-settings', 
         loadChildren: () => import('../account-settings/account-settings.module').then(m => m.AccountSettingsModule)
@@ -40,7 +37,9 @@ const routes: Routes = [
         path: 'usuariosfirebase', 
         loadChildren: () => import('../../componentes/usuariosfirebase/usuariosfirebase.module').then(m => m.UsuariosfirebaseModule)
       },
- 
+       {path: 'vistaEncuesta/:surveyId',
+        loadChildren: () => import('../vista-encuesta/vista-encuesta.module').then(m => m.VistaEncuestaModule)
+      },
 
       { path: '', redirectTo: 'paneles', pathMatch: 'full' }
     ]

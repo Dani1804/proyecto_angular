@@ -1,0 +1,22 @@
+<div *ngIf="survey">
+    <h1>Encuesta: {{ survey.name }}</h1>
+    <div *ngFor="let question of survey.questions; let i = index">
+      <p><strong>Pregunta {{ i + 1 }}:</strong> {{ question.question }}</p>
+      <div *ngIf="question.answerType === 'text'">
+        <label for="answer-{{ i }}">Respuesta:</label>
+        <input type="text" id="answer-{{ i }}" />
+      </div>
+      <div *ngIf="question.answerType === 'select'">
+        <label for="answer-{{ i }}">Seleccione una opción:</label>
+        <select id="answer-{{ i }}">
+          <!-- Aquí puedes agregar opciones según las necesidades -->
+          <option value="opcion1">Opción 1</option>
+          <option value="opcion2">Opción 2</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="!survey">
+    <p>Cargando encuesta...</p>
+  </div>

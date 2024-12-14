@@ -16,17 +16,3 @@
   </mat-card-content>
 </mat-card>
 
-<hr />
-
-<mat-card>
-  <mat-card-title>Escanear Código QR</mat-card-title>
-  <mat-card-content>
-    <!-- Escanear el código QR -->
-    <zxing-scanner (scanSuccess)="handleScanResult($event)"></zxing-scanner>
-
-    <!-- Mostrar el resultado del escaneo -->
-    <div *ngIf="scanResult">
-      <p><strong>Resultado del escaneo:</strong> {{ scanResult }}</p>
-    </div>
-  </mat-card-content>
-</mat-card>

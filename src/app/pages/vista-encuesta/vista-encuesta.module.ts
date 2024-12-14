@@ -1,46 +1,47 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GenerarQRComponent } from './generar-qr.component';
+import { VistaEncuestaComponent } from './vista-encuesta.component';
 import { RouterModule, Routes } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon'; 
+import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { MatPaginatorModule} from '@angular/material/paginator';
-import { MatTableModule} from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
-import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 import { QRCodeModule } from 'angularx-qrcode'; // Módulo para generar códigos QR
 import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { MatCardModule } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
 
 const routes: Routes = [
-  { path: '', component: GenerarQRComponent},
+  { path: '', component: VistaEncuestaComponent },
 ];
 
 @NgModule({
-  declarations: [ GenerarQRComponent],
+  declarations: [VistaEncuestaComponent],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes),  
+    RouterModule.forChild(routes),
     MatIconModule,
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
     MatTableModule, 
     MatPaginatorModule,
-    FormsModule,
+    FormsModule, 
+    MatFormFieldModule, 
+    MatInputModule,
+    MatButtonModule, 
+    MatDividerModule,
     MatDialogModule,
-    MatButtonModule,
     QRCodeModule,
     ZXingScannerModule,
     MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    
   ]
 })
-export class GenerarQRModule { }
+export class VistaEncuestaModule { }

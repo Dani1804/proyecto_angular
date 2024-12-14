@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GenerarQRComponent } from './generar-qr.component';
+import { VistaEncuestaComponent } from './vista-encuesta.component';
 
-describe('GenerarQRComponent', () => {
-  let component: GenerarQRComponent;
-  let fixture: ComponentFixture<GenerarQRComponent>;
+describe('VistaEncuestaComponent', () => {
+  let component: VistaEncuestaComponent;
+  let fixture: ComponentFixture<VistaEncuestaComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [GenerarQRComponent]
+      declarations: [VistaEncuestaComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(GenerarQRComponent);
+    fixture = TestBed.createComponent(VistaEncuestaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

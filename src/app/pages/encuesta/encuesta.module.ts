@@ -13,6 +13,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { QRCodeModule } from 'angularx-qrcode'; // Módulo para generar códigos QR
+import { ZXingScannerModule } from '@zxing/ngx-scanner';
+import { MatCardModule } from '@angular/material/card';
+
 
 const routes: Routes = [
   { path: '', component: EncuestaComponent },
@@ -33,7 +38,12 @@ const routes: Routes = [
     MatFormFieldModule, 
     MatInputModule,
     MatButtonModule, 
-    MatDividerModule
+    MatDividerModule,
+    MatDialogModule,
+    QRCodeModule,
+    ZXingScannerModule,
+    MatCardModule,
+    
   ]
 })
 export class EncuestaModule { }

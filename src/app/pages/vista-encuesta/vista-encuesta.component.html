@@ -1,22 +1,52 @@
-<div *ngIf="survey">
+<body>
+  <div *ngIf="survey" class="survey-container">
+    <!-- Formulario de datos del usuario -->
+    <div class="user-form">
+      <h2>Datos del Participante</h2>
+      <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" [(ngModel)]="userData.nom_cliente" placeholder="Ingrese su nombre" />
+      </div>
+      <div class="form-group">
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" [(ngModel)]="userData.telefono" placeholder="Ingrese su teléfono" />
+      </div>
+      <div class="form-group">
+        <label for="comuna">Comuna:</label>
+        <input type="text" id="comuna" [(ngModel)]="userData.nom_comuna" placeholder="Ingrese su comuna" />
+      </div>
+      <div class="form-group">
+        <label for="correo">Correo:</label>
+        <input type="email" id="correo" [(ngModel)]="userData.correo" placeholder="Ingrese su correo" />
+      </div>
+    </div>
+
+    <!-- Título de la encuesta -->
     <h1>Encuesta: {{ survey.name }}</h1>
-    <div *ngFor="let question of survey.questions; let i = index">
-      <p><strong>Pregunta {{ i + 1 }}:</strong> {{ question.question }}</p>
+
+    <!-- Preguntas de la encuesta -->
+    <div *ngFor="let question of survey.questions; let i = index" class="question-container">
+      <p class="survey-question"><strong>Pregunta {{ i + 1 }}:</strong> {{ question.question }}</p>
+      
+      <!-- Pregunta de tipo texto -->
       <div *ngIf="question.answerType === 'text'">
         <label for="answer-{{ i }}">Respuesta:</label>
-        <input type="text" id="answer-{{ i }}" />
+        <input type="text" id="answer-{{ i }}" [(ngModel)]="question.answer" placeholder="Escribe tu respuesta aquí" />
       </div>
-      <div *ngIf="question.answerType === 'select'">
+
+      <!-- Pregunta de tipo selección -->
+      <div class="AnswerForm" *ngIf="question.answerType === 'select'">
         <label for="answer-{{ i }}">Seleccione una opción:</label>
-        <select id="answer-{{ i }}">
-          <!-- Aquí puedes agregar opciones según las necesidades -->
+        <select id="answer-{{ i }}" [(ngModel)]="question.answer">
           <option value="opcion1">Opción 1</option>
           <option value="opcion2">Opción 2</option>
         </select>
       </div>
     </div>
+
+    <!-- Botón para guardar las respuestas -->
+    <div class="submit-container">
+      <button class="submit-btn" (click)="guardarEncuesta()">Guardar Encuesta</button>
+    </div>
   </div>
-  
-  <div *ngIf="!survey">
-    <p>Cargando encuesta...</p>
-  </div>
+</body>

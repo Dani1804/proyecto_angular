@@ -90,7 +90,7 @@
       ]
     },
     {
-      "id": 1734149752294,
+      "id": "1734149752294",
       "userId": "uZxWrEgqOgcUlbDgrP0j06RBJ2A2",
       "name": "Encuesta Seria",
       "questions": [
@@ -108,6 +108,53 @@
         },
         {
           "question": "Pregunta seria 4",
+          "answerType": "text"
+        }
+      ]
+    },
+    {
+      "id": 1734151614023,
+      "userId": "yIJSFt0XYAe5VurtgiDnYlgaIoI2",
+      "name": "Encuesta WonderDoll",
+      "questions": [
+        {
+          "question": "¿Qué tipo de muñecas prefieres comprar?",
+          "answerType": "text"
+        },
+        {
+          "question": "¿Qué características buscas en una muñeca al momento de comprarla?",
+          "answerType": "text"
+        },
+        {
+          "question": " ¿Con qué frecuencia compras muñecas para ti o para regalar?",
+          "answerType": "text"
+        },
+        {
+          "question": "¿Qué tan importante es el precio al momento de decidir qué muñeca comprar?",
+          "answerType": "text"
+        },
+        {
+          "question": "¿Te interesan las muñecas que representan personajes famosos o prefieres muñecas originales sin licencia?",
+          "answerType": "text"
+        },
+        {
+          "question": "¿Qué tan importante es que las muñecas tengan algún tipo de accesorio (ropa, zapatos, muebles, etc.)?",
+          "answerType": "text"
+        },
+        {
+          "question": "¿Prefieres comprar muñecas físicas en tiendas o te atrae más la opción de comprarlas online?",
+          "answerType": "text"
+        },
+        {
+          "question": "¿Qué temas o personajes te gustaría ver en futuras colecciones de muñecas?",
+          "answerType": "text"
+        },
+        {
+          "question": "¿Qué tan importante es la sostenibilidad o el uso de materiales ecológicos en las muñecas que compras?",
+          "answerType": "text"
+        },
+        {
+          "question": "¿Te gustaría que las muñecas tuvieran alguna función adicional, como tecnología integrada (por ejemplo, muñecas que hablan o interactúan)?",
           "answerType": "text"
         }
       ]

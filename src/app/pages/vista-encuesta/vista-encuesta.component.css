@@ -1,0 +1,79 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 250%; /* Asegura que html y body cubran toda la altura de la ventana */
+}
+
+body {
+  background-color: #1976d2; /* Color primario */
+}
+/* Estilos generales */
+.survey-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #ffb700;
+    box-sizing: border-box; /* Asegura que el padding no afecte la altura */
+    min-height: 100%; /* Asegura que el fondo cubra todo el contenido */
+  }
+  
+  /* Formulario de datos del participante */
+  .user-form {
+    margin-bottom: 20px;
+    background-color: lightblue;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  label {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  input[type="text"], input[type="tel"], input[type="email"] {
+    width: 95%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Título de la encuesta */
+  h1, h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Preguntas de la encuesta */
+  .survey-question {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  /* Contenedor del botón de guardar */
+  .submit-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .submit-btn {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    justify-content: center;
+  }
+  
+  .submit-btn:hover {
+    background-color: #45a049;
+  }

@@ -5,7 +5,7 @@
     <!-- Generar el código QR usando angularx-qrcode -->
     <div *ngIf="generatedQRCode">
       <qrcode [qrdata]="generatedQRCode" [width]="256" [errorCorrectionLevel]="'M'"></qrcode>
-      <button mat-raised-button color="accent" (click)="downloadQRCode()">Descargar QR</button>
+      <button class="DownloadQR" mat-raised-button color="accent" (click)="downloadQRCode()">Descargar QR</button>
     </div>
   </mat-card-content>
 </mat-card>

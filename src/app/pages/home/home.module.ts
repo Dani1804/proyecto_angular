@@ -37,9 +37,6 @@ const routes: Routes = [
         path: 'usuariosfirebase', 
         loadChildren: () => import('../../componentes/usuariosfirebase/usuariosfirebase.module').then(m => m.UsuariosfirebaseModule)
       },
-       {path: 'vistaEncuesta/:surveyId',
-        loadChildren: () => import('../vista-encuesta/vista-encuesta.module').then(m => m.VistaEncuestaModule)
-      },
 
       { path: '', redirectTo: 'paneles', pathMatch: 'full' }
     ]

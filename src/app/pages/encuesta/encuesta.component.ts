@@ -75,7 +75,7 @@ export class EncuestaComponent implements OnInit {
   }
 
   viewSurvey( surveyId: number): void {
-    this.router.navigate(['/home/vistaEncuesta/', surveyId]);
+    this.router.navigate(['vistaEncuesta/', surveyId]);
   }
 
   saveForm() {

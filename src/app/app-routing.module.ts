@@ -11,6 +11,10 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule),
     canActivate: [AuthGuard] // Protege la ruta home
   },
+  { 
+    path: 'vistaEncuesta/:surveyId', 
+    loadChildren: () => import('./pages/vista-encuesta/vista-encuesta.module').then(m => m.VistaEncuestaModule)
+  },
   { path: 'login', loadChildren: () => import('./pages/login/login.module').then(m => m.LoginModule) },
   { path: 'reestablecer', loadChildren: () => import('./pages/reestablecer-pass/reestablecer-pass.module').then(m => m.ReestablecerPassModule) },
   { path: 'pagina404', component: Pagina404Component },

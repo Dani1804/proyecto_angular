@@ -57,4 +57,7 @@ export class SurveyService {
   private restartServer(): void {
     this.http.get('http://localhost:3000/restart').subscribe();
   }
+  getSurveyByIdFree(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
 }

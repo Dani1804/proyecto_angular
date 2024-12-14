@@ -30,7 +30,7 @@ export class VistaEncuestaComponent implements OnInit {
   }
 
   async loadSurvey(surveyId: number): Promise<void> {
-    const survey$ = await this.surveyService.getSurveyById(surveyId); // Asumimos que existe este método en SurveyService
+    const survey$ = await this.surveyService.getSurveyByIdFree(surveyId); // Asumimos que existe este método en SurveyService
     survey$.subscribe(
       (data) => (this.survey = data),
       (error) => console.error('Error al cargar la encuesta:', error)

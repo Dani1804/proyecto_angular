@@ -17,6 +17,7 @@ export class LoginComponent implements OnInit {
   email: string = '';
   clave1: string = '';
   claveV: string = '';
+ 
   
 
   constructor(private router: Router, private authService: AuthService, private crudService: CrudfirebaseService) {}

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Observable, of } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +11,29 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 export class CrudfirebaseService {
 
   constructor(private afAuth: AngularFireAuth, private router: Router, private firestore: AngularFirestore,) { }
+
+  isAdmin(): Observable<boolean> {
+    return this.afAuth.authState.pipe(
+      switchMap(user => {
+        if (user) {
+          // Obtén el documento del usuario desde Firestore
+          return this.firestore
+            .doc(`Usuarios/${user.uid}`)
+            .valueChanges()
+            .pipe(
+              switchMap((userData: any) => {
+                // Verifica el campo isAdmin
+                return of(userData?.isAdmin ?? false);
+              })
+            );
+        } else {
+          return of(false);
+        }
+      })
+    );
+  }
+
+
 
   //Agregar nuevo usuario a Firebase authentication
   async addUser(email: string, password: string, nombre: string): Promise<void> {
@@ -22,7 +47,8 @@ export class CrudfirebaseService {
           id_usuario: user.uid,
           nombre: nombre,
           correo: user.email,
-          clave: password // Guarda la contraseña o una versión encriptada si es necesario
+          clave: password,
+          isAdmin: false // Guarda la contraseña o una versión encriptada si es necesario
         });
       }
     } catch (error: any) {
@@ -122,5 +148,44 @@ export class CrudfirebaseService {
     }
   }
   
+  getAllUsers(): Observable<any[]> {
+    return this.isAdmin().pipe(
+      switchMap((isAdmin) => {
+        if (isAdmin) {
+          // Si es admin, obtenemos todos los usuarios de la colección "Usuarios"
+          return this.firestore.collection('Usuarios').valueChanges();
+        } else {
+          // Si no es admin, devolvemos un array vacío o puedes manejarlo de otra forma
+          return of([]);
+        }
+      })
+    );
+  }
 
+  async deleteUserById(uid: string): Promise<void> {
+    try {
+      // Verifica si el usuario logueado es admin
+      const isAdmin = await this.isAdmin().toPromise();
+      if (!isAdmin) {
+        alert('No tienes permisos para eliminar usuarios');
+        return;
+      }
+  
+      // Elimina el documento del usuario en la colección "Usuarios" de Firestore
+      await this.firestore.collection('Usuarios').doc(uid).delete();
+      console.log('Usuario eliminado de Firestore');
+  
+
+      const user = await this.afAuth.currentUser;
+      if (user && user.uid === uid) {
+      await user.delete(); // Elimina al usuario de Firebase Auth
+      console.log('Usuario eliminado de Firebase Auth');
+      }
+  
+      alert('Usuario eliminado exitosamente');
+    } catch (error: any) {
+      console.error('Error al eliminar el usuario:', error);
+      alert('No se pudo eliminar el usuario: ' + error.message);
+    }
+  }
 }

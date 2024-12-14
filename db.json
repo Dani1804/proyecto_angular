@@ -90,7 +90,7 @@
       ]
     },
     {
-      "id": 1734149752294,
+      "id": "1734149752294",
       "userId": "uZxWrEgqOgcUlbDgrP0j06RBJ2A2",
       "name": "Encuesta Seria",
       "questions": [
@@ -108,6 +108,18 @@
         },
         {
           "question": "Pregunta seria 4",
+          "answerType": "text"
+        },
+        {
+          "question": "Pregunta seria 5",
+          "answerType": "text"
+        },
+        {
+          "question": "Pregunta seria 6",
+          "answerType": "text"
+        },
+        {
+          "question": "Pregunta seria 7",
           "answerType": "text"
         }
       ]

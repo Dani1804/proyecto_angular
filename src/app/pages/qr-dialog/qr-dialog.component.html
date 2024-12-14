@@ -1,12 +1,6 @@
 <mat-card>
   <mat-card-title>Generar Código QR</mat-card-title>
   <mat-card-content>
-    <!-- Input para el texto que se convertirá en código QR -->
-    <mat-form-field appearance="fill">
-      <mat-label>Texto para QR</mat-label>
-      <input matInput [(ngModel)]="qrData" placeholder="Escribe el texto para el QR">
-    </mat-form-field>
-    <button mat-raised-button color="primary" (click)="generateQRCode()">Generar QR</button>
 
     <!-- Generar el código QR usando angularx-qrcode -->
     <div *ngIf="generatedQRCode">

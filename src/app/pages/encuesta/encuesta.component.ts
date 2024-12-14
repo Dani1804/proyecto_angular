@@ -23,13 +23,14 @@ export class EncuestaComponent implements OnInit {
     questions: [{ question: '', answerType: 'text' }],
     id: null as number | null
   };
+  route: string = '';
 
   constructor(private router: Router, private surveyService: SurveyService, private crudService: CrudfirebaseService, private dialog: MatDialog) {}
   openQrDialog(surveyId: number): void {
-    const surveyToEdit = this.surveys.find(survey => survey.id === surveyId);
-    this.formData = { ...surveyToEdit };
+    const ruta = `http://localhost:4200/vistaEncuesta/${surveyId}`;
+    this.route = ruta;
     this.dialog.open(QrDialogComponent, {
-      data: this.formData
+      data: { route: this.route } // Pasamos un objeto con la propiedad 'route'
     });
   }
 
@@ -74,8 +75,8 @@ export class EncuestaComponent implements OnInit {
     }
   }
 
-  viewSurvey( surveyId: number): void {
-    this.router.navigate(['vistaEncuesta/', surveyId]);
+  viewSurvey(surveyId: number):void { 
+    this.router.navigate([`vistaEncuesta/${surveyId}`]); 
   }
 
   saveForm() {

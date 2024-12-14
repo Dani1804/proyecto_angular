@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">ProyectoProgramacionMobile</string>
+    <string name="title_activity_main">ProyectoProgramacionMobile</string>
+    <string name="package_name">com.pollingowl.app</string>
+    <string name="custom_url_scheme">com.pollingowl.app</string>
+</resources>

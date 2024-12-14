@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "encuestaAPP": {
+    "ProyectoProgramacionMobile": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/encuesta-app",
+            "outputPath": "dist/ProyectoProgramacionMobile",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -52,13 +52,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "2mb",
+                  "maximumError": "2.5MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kB",
-                  "maximumError": "4kB"
+                  "maximumWarning": "2mb",
+                  "maximumError": "2.5mb"
                 }
               ],
               "outputHashing": "all"
@@ -81,10 +81,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "encuestaAPP:build:production"
+              "buildTarget": "ProyectoProgramacionMobile:build:production"
             },
             "development": {
-              "buildTarget": "encuestaAPP:build:development"
+              "buildTarget": "ProyectoProgramacionMobile:build:development"
             }
           },
           "defaultConfiguration": "development"

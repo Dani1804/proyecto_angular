@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "798698239510",
+    "project_id": "proyectoarquitectura-4a552",
+    "storage_bucket": "proyectoarquitectura-4a552.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798698239510:android:cc8d72d4e044cebf72a737",
+        "android_client_info": {
+          "package_name": "com.pollingowl.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPpyLIsnHkO-EXOaX6Id2X6O1uMpjzdnY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
